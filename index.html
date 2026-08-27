@@ -392,17 +392,17 @@
         /* Hero Right Column: Aarti Gupta Portrait Frame */
         .hero-visual-card {
             background: #ffffff;
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
+            border: 1px solid rgba(224, 185, 200, 0.4);
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 12px 35px rgba(74, 25, 44, 0.08);
             position: relative;
         }
 
         .hero-portrait-frame {
             position: relative;
-            height: 400px;
-            background: linear-gradient(135deg, #44142d 0%, #701c45 100%);
+            height: 380px;
+            background: linear-gradient(180deg, #fdf6f9 0%, #faeef3 50%, #44142d 100%);
             overflow: hidden;
             display: flex;
             align-items: flex-end;
@@ -411,9 +411,10 @@
 
         .hero-portrait-frame img {
             height: 100%;
-            width: 100%;
-            object-fit: cover;
-            object-position: center top;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            object-position: bottom center;
             transition: transform 0.4s ease;
         }
 
@@ -424,7 +425,7 @@
         .portrait-overlay-gradient {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(41, 12, 27, 0.92) 0%, rgba(41, 12, 27, 0.25) 50%, rgba(0, 0, 0, 0) 100%);
+            background: linear-gradient(to top, rgba(41, 12, 27, 0.95) 0%, rgba(41, 12, 27, 0.45) 35%, rgba(0, 0, 0, 0) 65%);
             pointer-events: none;
         }
 
@@ -433,7 +434,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 24px 26px;
+            padding: 22px 24px;
             color: #ffffff;
             z-index: 2;
         }
@@ -443,40 +444,29 @@
             font-size: 24px;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .portrait-caption-box p {
-            font-size: 13.5px;
+            font-size: 13px;
             color: #f7d2e2;
             font-weight: 500;
             line-height: 1.4;
         }
 
         .hero-card-footer {
-            padding: 20px 24px;
+            padding: 16px 22px;
             background: #ffffff;
             border-top: 1px solid var(--border-light);
-        }
-
-        .hero-quote-snippet {
-            font-family: var(--font-serif);
-            font-size: 17px;
-            font-style: italic;
-            color: var(--brand-primary);
-            line-height: 1.45;
-            margin-bottom: 12px;
         }
 
         .hero-badges-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 12px;
-            color: var(--text-muted);
+            font-size: 13px;
+            color: #5a203d;
             font-weight: 600;
-            border-top: 1px dashed var(--border-light);
-            padding-top: 10px;
         }
 
         /* -------------------------------------------
@@ -1287,8 +1277,8 @@
                 <ul class="nav-links">
                     <li><a href="#services">Services & Modalities</a></li>
                     <li><a href="#about">About Aarti</a></li>
+                    <li><a href="#background">Institutional Background</a></li>
                     <li><a href="retreat/" class="highlight-pill">🌲 Oct 2026 Retreat</a></li>
-                    <li><a href="#community">Community Circles</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -1334,7 +1324,7 @@
 
                 <div class="hero-visual-card">
                     <div class="hero-portrait-frame">
-                        <img src="assets/aarti_half_portrait.png?v=20260827_3" alt="Aarti Gupta - Founder of Healing Circle">
+                        <img src="assets/aarti_transparent_portrait.png?v=20260827_4" alt="Aarti Gupta - Founder of Healing Circle">
                         <div class="portrait-overlay-gradient"></div>
                         <div class="portrait-caption-box">
                             <h3>Aarti Gupta</h3>
@@ -1342,9 +1332,6 @@
                         </div>
                     </div>
                     <div class="hero-card-footer">
-                        <p class="hero-quote-snippet">
-                            “Every thought we think and every word we speak is creating our future.”
-                        </p>
                         <div class="hero-badges-row">
                             <span>🌸 25+ Years Experience</span>
                             <span>✨ Holistic Healing</span>
@@ -1594,6 +1581,86 @@
         </div>
     </section>
 
+    <!-- 25+ YEARS INSTITUTIONAL & ORGANIZATIONAL TRACK RECORD -->
+    <section id="background" style="background: var(--bg-card); padding: 85px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">25+ Years of Dedicated Facilitation</span>
+                <h2 class="section-title">Institutional Background & Experience</h2>
+                <p class="section-subtitle">Aarti Gupta has conducted transformative workshops, faculty development, and counseling programs across premier universities, medical centers, corporate bodies, and community organizations across India.</p>
+            </div>
+
+            <div class="track-record-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 40px;">
+                
+                <!-- Card 1: Educational Institutions -->
+                <div style="background: #ffffff; border-radius: 16px; padding: 28px; border: 1px solid var(--border-light); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 18px;">
+                        <span style="font-size: 24px;">🎓</span>
+                        <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--brand-primary); margin: 0;">Educational Institutions</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 9px; font-size: 13.5px; color: var(--text-dark);">
+                        <li>• <strong>NLDIMSR</strong>, Mira Road</li>
+                        <li>• <strong>Thakur Institute of Management Studies (TIMSR)</strong>, Kandivali</li>
+                        <li>• <strong>Royal College</strong>, Mira Road</li>
+                        <li>• <strong>K.C. College</strong>, Churchgate, Mumbai</li>
+                        <li>• <strong>KCCMS</strong>, Colaba, Mumbai</li>
+                        <li>• <strong>National College</strong>, Bandra, Mumbai</li>
+                        <li>• <strong>Scholars' Home</strong>, Dehradun</li>
+                        <li>• <strong>Vissanji Academy</strong>, Andheri, Mumbai</li>
+                        <li>• <strong>Canossian Sisters Convent</strong>, Belgaum</li>
+                        <li>• <strong>Bel-Air College of Nursing</strong>, Panchgani</li>
+                        <li>• <strong>Ramana Vidyalaya</strong>, MGR Salai, Chennai</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Key Workshops & Seminars -->
+                <div style="background: #ffffff; border-radius: 16px; padding: 28px; border: 1px solid var(--border-light); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 18px;">
+                        <span style="font-size: 24px;">🏛️</span>
+                        <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--brand-primary); margin: 0;">Workshops & Special Programs</h3>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; color: var(--text-dark);">
+                        <li>• <strong>TISS (Tata Institute of Social Sciences):</strong> Suicide Prevention & Conceptual Clarity on Stress Management for NSS Program Officers</li>
+                        <li>• <strong>Central Govt. AICTE – ATAL FDP:</strong> <em>Heal Your Mind, Heal Your Body</em> Online Faculty Development Programme at Makhanlal Chaturvedi AICTE</li>
+                        <li>• <strong>LGBTQ+ Community in Bhubaneshwar:</strong> <em>Heal Your Mind, Heal Your Body</em> safe space workshop</li>
+                        <li>• <strong>Bel-Air Hospital Campus, Panchgani:</strong> Training for counselors across Maharashtra for HIV & AIDS patients</li>
+                        <li>• <strong>SIES College:</strong> Sessions for Counseling students</li>
+                        <li>• <strong>St. Xavier’s (Panchgani) & Vissanji School (Andheri):</strong> Personal Growth Laboratory & Professional Skills for Teachers</li>
+                        <li>• <strong>Life Skills for Adolescents (Since 1999):</strong> Non-school environments, Don Bosco School, Gyanodaya NIOS, Rustomjee</li>
+                        <li>• <strong>Mind Management:</strong> For MBA & CA students of SIMSR and NLDIMSR</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Corporate & Associations -->
+                <div style="background: #ffffff; border-radius: 16px; padding: 28px; border: 1px solid var(--border-light); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 18px;">
+                        <span style="font-size: 24px;">🏢</span>
+                        <h3 style="font-family: var(--font-display); font-size: 20px; color: var(--brand-primary); margin: 0;">Corporate & Associations</h3>
+                    </div>
+                    <div style="margin-bottom: 18px;">
+                        <h4 style="font-size: 14.5px; color: var(--brand-primary); margin-bottom: 8px;">Corporate Wellness:</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: var(--text-dark);">
+                            <li>• <strong>Eternis Fine Chemicals Ltd.</strong> (Lower Parel) — Half-Day Corporate Wellness Workshop</li>
+                            <li>• <strong>IndianOil</strong> (Bandra) — Half-Day Corporate Wellness Workshop</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 14.5px; color: var(--brand-primary); margin-bottom: 8px;">Associations & Global Meets:</h4>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: var(--text-dark);">
+                            <li>• <strong>BITS Pilani Global Meet</strong>, Hyderabad</li>
+                            <li>• <strong>BITS Bindaas Bitsians</strong>, Goa</li>
+                            <li>• <strong>Maheshwari Ladies Group</strong>, Borivali</li>
+                        </ul>
+                    </div>
+                    <div style="margin-top: 20px; padding: 12px 14px; background: var(--bg-soft); border-radius: 8px; font-size: 12px; color: var(--text-muted); line-height: 1.45;">
+                        <em>Note: Programs and workshops conducted over 25+ years of dedicated service. Available for references upon request.</em>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- COMMUNITY & WEEKLY CIRCLES -->
     <div id="community" class="community-strip">
         <div class="container">
@@ -1690,9 +1757,93 @@
 
             </div>
 
-            <div style="text-align: center;">
+            <!-- PARTICIPANT TESTIMONIALS VIDEO & AUTHENTIC HYL REFLECTIONS -->
+            <div style="margin-top: 60px; background: #ffffff; border-radius: 20px; padding: 40px; border: 1px solid var(--border-light); box-shadow: 0 10px 30px rgba(74, 25, 44, 0.05);">
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 36px; align-items: center; margin-bottom: 40px;">
+                    <!-- Video Embed -->
+                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
+                        <iframe 
+                            src="https://www.youtube-nocookie.com/embed/wPe3uda86Sc?rel=0" 
+                            title="Testimonials from participants of the Louise Hay 2-Day Workshop with Aarti Gupta" 
+                            style="position: absolute; top:0; left: 0; width: 100%; height: 100%; border:0;"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                    <!-- Video Context & Message -->
+                    <div>
+                        <span class="section-eyebrow" style="color: var(--brand-accent);">Video Testimonials</span>
+                        <h3 style="font-family: var(--font-display); font-size: 26px; color: var(--brand-primary); margin: 8px 0 14px;">PARTICIPANT TESTIMONIALS</h3>
+                        <p style="font-size: 14.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 18px;">
+                            Watch authentic reflections directly from participants of Aarti Gupta’s Louise Hay 2-Day Workshops, sharing how gentle emotional release, mirror work, and self-love created profound breakthroughs in their daily lives.
+                        </p>
+                        <a href="https://youtu.be/wPe3uda86Sc" target="_blank" class="btn-outline-subtle" style="font-size: 13.5px; padding: 9px 20px;">
+                            <span>▶️</span> Watch Directly on YouTube
+                        </a>
+                    </div>
+                </div>
+
+                <!-- HOW DOES "HEAL YOUR LIFE" ⒽⓎⓁ HELP -->
+                <div style="border-top: 1px dashed var(--border-light); padding-top: 35px;">
+                    <div style="text-align: center; margin-bottom: 24px;">
+                        <h3 style="font-family: var(--font-display); font-size: 24px; color: var(--brand-primary); margin-bottom: 6px;">HOW DOES "HEAL YOUR LIFE" ⒽⓎⓁ HELP</h3>
+                        <p style="font-size: 13px; color: var(--text-muted); font-style: italic;">Names have been deliberately changed to avoid any identifications and maintain confidentiality of sharing...</p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-bottom: 30px;">
+                        <div style="background: var(--bg-soft); padding: 18px 20px; border-radius: 12px; border-left: 3px solid var(--brand-accent); font-size: 13.5px; line-height: 1.55; color: var(--text-dark);">
+                            <strong style="color: var(--brand-accent);">❣</strong> One thing that's enabled me post ⒽⓎⓁ workshop is to accept things as they are. I've learnt to understand my weaknesses better. I am working successfully towards building up on my strengths.
+                        </div>
+
+                        <div style="background: var(--bg-soft); padding: 18px 20px; border-radius: 12px; border-left: 3px solid var(--brand-accent); font-size: 13.5px; line-height: 1.55; color: var(--text-dark);">
+                            <strong style="color: var(--brand-accent);">❣</strong> Being on my spiritual journey ⒽⓎⓁ helped me to look deeper within me and to my amazement just the day after ⒽⓎⓁ my heart wrote a song so effortlessly. My soul was singing :-)
+                        </div>
+
+                        <div style="background: var(--bg-soft); padding: 18px 20px; border-radius: 12px; border-left: 3px solid var(--brand-accent); font-size: 13.5px; line-height: 1.55; color: var(--text-dark);">
+                            <strong style="color: var(--brand-accent);">❣</strong> The deep contentment, calmness and inner smile made me glow both from within and outside and Yes I was complimented by so many people.
+                        </div>
+
+                        <div style="background: var(--bg-soft); padding: 18px 20px; border-radius: 12px; border-left: 3px solid var(--brand-accent); font-size: 13.5px; line-height: 1.55; color: var(--text-dark);">
+                            <strong style="color: var(--brand-accent);">❣</strong> It made me see all my relationships as my own reflection.
+                        </div>
+
+                        <div style="background: var(--bg-soft); padding: 18px 20px; border-radius: 12px; border-left: 3px solid var(--brand-accent); font-size: 13.5px; line-height: 1.55; color: var(--text-dark);">
+                            <strong style="color: var(--brand-accent);">❣</strong> It led me from being a participant to assisting in this journey of love and healing.
+                        </div>
+
+                        <div style="background: var(--bg-soft); padding: 18px 20px; border-radius: 12px; border-left: 3px solid var(--brand-accent); font-size: 13.5px; line-height: 1.55; color: var(--text-dark);">
+                            <strong style="color: var(--brand-accent);">❣</strong> We always yearn and look for love from outside sources and in this we forget to love our own very self. I learnt to love myself.
+                        </div>
+
+                        <div style="background: var(--bg-soft); padding: 18px 20px; border-radius: 12px; border-left: 3px solid var(--brand-accent); font-size: 13.5px; line-height: 1.55; color: var(--text-dark);">
+                            <strong style="color: var(--brand-accent);">❣</strong> In Gratitude towards Aarti ma'am, Louise Hay, Patricia Crane, my family and friends, Creator, Reiki energy, my ⒽⓎⓁ group and everyone who led me to this life transforming experience.
+                        </div>
+
+                        <div style="background: var(--bg-soft); padding: 18px 20px; border-radius: 12px; border-left: 3px solid var(--brand-accent); font-size: 13.5px; line-height: 1.55; color: var(--text-dark);">
+                            <strong style="color: var(--brand-accent);">❣</strong> An individual may be on a spiritual path or contented with his/her life or may be looking for his/her life path or searching his/her perfect partner, a good job, successful career, financial security—know that there is always more to life.
+                        </div>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, rgba(112, 28, 69, 0.08) 0%, rgba(200, 75, 114, 0.12) 100%); border-radius: 14px; padding: 22px; text-align: center; border: 1px solid rgba(112, 28, 69, 0.15);">
+                        <p style="font-family: var(--font-display); font-size: 17px; color: var(--brand-primary); font-weight: 700; margin-bottom: 6px;">
+                            To create abundance in all areas of your life join us in this 2 days life transforming workshop at Healing Circle - Circle of Love, Joy n Peace.
+                        </p>
+                        <p style="font-size: 14px; color: var(--brand-accent); font-style: italic; margin-bottom: 14px;">
+                            Just take the first step of faith, transform your life and rediscover yourself.
+                        </p>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20would%20like%20to%20know%20more%20about%20the%20Heal%20Your%20Life%202-Day%20Workshop." target="_blank" class="btn-plum" style="padding: 10px 24px; font-size: 14px;">
+                            <span>🌸</span> Connect with Aarti on WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
                 <a href="http://tinyurl.com/lq2csmn" target="_blank" class="btn-plum">
-                    <span>💬</span> Read More Verified Participant Experiences &rarr;
+                    <span>💬</span> Read More Authentic Participant Experiences &rarr;
                 </a>
             </div>
         </div>
@@ -1814,13 +1965,14 @@
                 </div>
 
                 <div class="footer-links-col">
-                    <h5>Offerings</h5>
+                    <h5>Quick Links</h5>
                     <ul>
-                        <li><a href="#services">Reiki Healing & Training</a></li>
-                        <li><a href="#services">Counseling Psychology</a></li>
+                        <li><a href="#services">Services & Modalities</a></li>
+                        <li><a href="#about">About Aarti</a></li>
+                        <li><a href="#background">Institutional Track Record</a></li>
                         <li><a href="retreat/">Heal Your Life® Retreat 2026</a></li>
-                        <li><a href="#services">Angel Therapy & Readings</a></li>
-                        <li><a href="#services">Pythagorean Numerology</a></li>
+                        <li><a href="https://youtu.be/wPe3uda86Sc" target="_blank">Video Testimonials (YouTube)</a></li>
+                        <li><a href="http://tinyurl.com/lq2csmn" target="_blank">Participant Testimonials</a></li>
                     </ul>
                 </div>
 
