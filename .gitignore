@@ -1,0 +1,6 @@
+resources/
+*.zip
+.DS_Store
+.user_uploaded/
+.tempmediaStorage/
+Heal Your Life Landing Page/
