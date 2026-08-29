@@ -1211,6 +1211,171 @@
         }
 
         /* -------------------------------------------
+           PROGRAMS & WORKSHOPS TABS
+        ------------------------------------------- */
+        .programs-tabs-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 35px 0 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tab-btn:hover {
+            color: var(--brand-primary);
+            border-color: var(--brand-accent);
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background: var(--brand-primary);
+            color: #ffffff;
+            border-color: var(--brand-primary);
+            box-shadow: 0 4px 15px rgba(133, 34, 82, 0.25);
+        }
+
+        .tab-content-panel {
+            display: none;
+            animation: fadeIn 0.35s ease forwards;
+        }
+
+        .tab-content-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .program-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 26px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .program-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(196, 56, 120, 0.35);
+            box-shadow: 0 10px 28px rgba(133, 34, 82, 0.08);
+        }
+
+        /* -------------------------------------------
+           MEDIA & PUBLICATIONS STYLES
+        ------------------------------------------- */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .article-card {
+            background: #ffffff;
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--brand-accent);
+            box-shadow: 0 10px 25px rgba(133, 34, 82, 0.09);
+        }
+
+        /* -------------------------------------------
+           PHOTO GALLERY STYLES
+        ------------------------------------------- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 35px;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            aspect-ratio: 4/3;
+            background: #f0e6ed;
+            cursor: pointer;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px 14px 12px;
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-card:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* -------------------------------------------
+           COMMUNITY & BLOSSOM STYLES
+        ------------------------------------------- */
+        .blossom-banner {
+            background: linear-gradient(135deg, #fff9fc 0%, #fbf1f5 100%);
+            border: 1.5px solid rgba(196, 56, 120, 0.25);
+            border-radius: 20px;
+            padding: 36px 32px;
+            box-shadow: 0 8px 24px rgba(133, 34, 82, 0.05);
+        }
+
+        /* -------------------------------------------
            RESPONSIVE BREAKPOINTS
         ------------------------------------------- */
         @media (max-width: 992px) {
@@ -1287,11 +1452,14 @@
                 </a>
 
                 <ul class="nav-links">
-                    <li><a href="#services">Services & Modalities</a></li>
-                    <li><a href="#about">About Aarti</a></li>
-                    <li><a href="#background">Institutional Background</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#programs">Workshops & Circles</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#background">Track Record</a></li>
+                    <li><a href="#media">Articles & Media</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#community">Community</a></li>
                     <li><a href="retreat/" class="highlight-pill">🌲 Oct 2026 Retreat</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
 
@@ -1511,6 +1679,342 @@
         </div>
     </section>
 
+    <!-- PROGRAMS, WORKSHOPS & CHALLENGES DIRECTORY -->
+    <section id="programs" style="background: var(--bg-soft); padding: 85px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Interactive Learning & Experiential Growth</span>
+                <h2 class="section-title">Workshops, Programs & Sacred Circles</h2>
+                <p class="section-subtitle">From structured 21-day WhatsApp journeys to intensive weekend masterclasses, Reiki degree certifications, and profound sacred reading circles.</p>
+            </div>
+
+            <!-- Tab Switcher Navigation -->
+            <div class="programs-tabs-nav">
+                <button type="button" class="tab-btn active" onclick="switchProgramTab('tab-whatsapp', this)">
+                    <span>📱</span> WhatsApp & 21-Day Challenges
+                </button>
+                <button type="button" class="tab-btn" onclick="switchProgramTab('tab-workshops', this)">
+                    <span>🌸</span> Signature HYL & Specialized Workshops
+                </button>
+                <button type="button" class="tab-btn" onclick="switchProgramTab('tab-reiki', this)">
+                    <span>🌿</span> Reiki Energy Certifications
+                </button>
+                <button type="button" class="tab-btn" onclick="switchProgramTab('tab-reading', this)">
+                    <span>📖</span> Sacred Book Reading Circles
+                </button>
+            </div>
+
+            <!-- TAB 1: WhatsApp & 21-Day Challenges -->
+            <div id="tab-whatsapp" class="tab-content-panel active">
+                <div class="programs-grid">
+                    
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">💖</span>
+                                <span style="background: rgba(196,56,120,0.1); color: var(--brand-accent); padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">7 Days Journey</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">7 Days Self Love Challenge</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                A gentle, high-impact introductory immersion into mirror work, releasing self-criticism, positive affirmations, and establishing daily nourishing self-care rituals.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20the%207%20Days%20Self%20Love%20Challenge." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Inquire on WhatsApp</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">💪</span>
+                                <span style="background: rgba(34,82,59,0.1); color: var(--brand-forest); padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">21 Days Journey</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">21 Days Inner Strength Program</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Deepen your resilience, anchor emotional stability, and clear unconscious self-doubt through guided daily prompts, grounding practices, and audio reflections.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20the%2021%20Days%20Inner%20Strength%20Program." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Inquire on WhatsApp</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">✨</span>
+                                <span style="background: rgba(201,150,74,0.15); color: #9c6819; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">21 Days Journey</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">21 Days Abundance Program</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Shift from scarcity mindset to universal flow. Rewire deep-seated money beliefs, unlock prosperity consciousness, and align with ease and receiving.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20the%2021%20Days%20Abundance%20Program." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Inquire on WhatsApp</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">🪞</span>
+                                <span style="background: rgba(133,34,82,0.1); color: var(--brand-primary); padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">21 Days Journey</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">21 Days Mirror Work</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Louise Hay's most iconic healing method. Face yourself with compassion, forgive past hurts, and build unconditional self-acceptance gaze by gaze.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20the%2021%20Days%20Mirror%20Work." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Inquire on WhatsApp</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">✍️</span>
+                                <span style="background: rgba(196,56,120,0.1); color: var(--brand-accent); padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">21 Days Prompts</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">21 Days Journaling Prompts</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Daily contemplative writing prompts designed by Aarti Gupta to uncover hidden beliefs, process unresolved emotions, and spark creative clarity.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20the%2021%20Days%20Journaling%20Prompts." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Inquire on WhatsApp</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">🎬</span>
+                                <span style="background: rgba(34,82,59,0.1); color: var(--brand-forest); padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">Special Series</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">Barucha Learnings, Affirmations & Silence</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Inspiring thematic workshops integrating spiritual cinema, deep contemplative silence, and empowering affirmations for inner peace.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20Affirmations%20and%20Celebrating%20Silence%20circles." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Inquire on WhatsApp</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- TAB 2: Signature Workshops & Modalities -->
+            <div id="tab-workshops" class="tab-content-panel">
+                <div class="programs-grid">
+                    
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">🙏</span>
+                                <span style="background: rgba(201,150,74,0.15); color: #9c6819; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">Signature Program</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">Treasury of Thank Yous (TOTY)</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Based on Aarti Gupta’s book <em>Treasury of Thank Yous</em>. A life-transforming 30-day gratitude practice & continuous circles to turn everyday moments into conscious grace and abundance.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20would%20like%20to%20know%20more%20about%20the%20TOTY%20Workshop." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Join TOTY Workshop</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">💖</span>
+                                <span style="background: rgba(196,56,120,0.1); color: var(--brand-accent); padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">2-Day & Retreats</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">Love Yourself, Heal Your Life®</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Louise Hay’s worldwide acclaimed personal transformation workshop. Release guilt, anger, fear, and limiting beliefs while developing deep self-love.
+                            </p>
+                        </div>
+                        <a href="retreat/" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Explore Oct 2026 Retreat</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">💰</span>
+                                <span style="background: rgba(34,82,59,0.1); color: var(--brand-forest); padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">Prosperity Workshop</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">MAP: Money, Abundance & Prosperity</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Uncover subconscious financial vows, clear generational scarcity patterns, and align your energy field with prosperity and effortless flow.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20the%20MAP%20Money%20Abundance%20Workshop." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Inquire on WhatsApp</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">🛡️</span>
+                                <span style="background: rgba(133,34,82,0.1); color: var(--brand-primary); padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">Empowerment</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">Healthy Boundaries & Yes Therapy</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Learn to say compassionate "No" without guilt, establish emotional sovereign boundaries in relationships, and say "Yes" to your highest life goals.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20Healthy%20Boundaries%20Workshop." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Inquire on WhatsApp</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">✂️</span>
+                                <span style="background: rgba(196,56,120,0.1); color: var(--brand-accent); padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">Energy Cord Clearing</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">Karmic Cord Cutting (KCC) & Chakra Healing</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Sever unhealthy energetic attachments, release past relationship entanglements, and align the 7 chakras for revitalized health and emotional equilibrium.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20Karmic%20Cord%20Cutting%20and%20Chakra%20Healing." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Inquire on WhatsApp</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">🌌</span>
+                                <span style="background: rgba(201,150,74,0.15); color: #9c6819; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">Manifestation</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">Ordering from Cosmic Kitchen & Wheel of Life</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Master the art of clear, joyful intention setting. Gain 360-degree clarity across career, health, finances, and relationships with the Wheel of Life.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20Ordering%20from%20Cosmic%20Kitchen%20workshop." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Inquire on WhatsApp</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- TAB 3: Reiki Certifications -->
+            <div id="tab-reiki" class="tab-content-panel">
+                <div class="programs-grid">
+                    
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">🌿</span>
+                                <span style="background: rgba(34,82,59,0.1); color: var(--brand-forest); padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">Foundation</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">First Degree Usui Reiki (Shoden)</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Learn the history of Usui Reiki, human energy anatomy, hand positions for self-treatment and healing others, and receive your sacred Level 1 attunement.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20Reiki%20Level%201%20Training." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Inquire Level 1</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">⚡</span>
+                                <span style="background: rgba(196,56,120,0.1); color: var(--brand-accent); padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">Advanced Practitioner</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">Second Degree Usui Reiki (Okuden)</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Receive sacred symbols for mental/emotional healing, distance healing across time and space, and amplified practitioner transmission power.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20Reiki%20Level%202%20Training." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Inquire Level 2</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">👑</span>
+                                <span style="background: rgba(201,150,74,0.15); color: #9c6819; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">Mastership</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">Third Degree Reiki Master / Teacher (Shinpiden)</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Master symbol attunement, advanced energetic diagnosis, psychic surgery, and complete training to initiate and teach your own students.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20Reiki%20Master%20Training." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Inquire Mastership</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">🕊️</span>
+                                <span style="background: rgba(133,34,82,0.1); color: var(--brand-primary); padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">High Frequency</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">Karuna Reiki® Certification</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                High vibrational compassionate healing energy developed by William Lee Rand. Ideal for cellular level trauma, shadow self, and spiritual awakening.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20Karuna%20Reiki%20Certification." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Inquire Karuna Reiki</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- TAB 4: Sacred Book Reading Circles -->
+            <div id="tab-reading" class="tab-content-panel">
+                <div class="programs-grid">
+                    
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">📖</span>
+                                <span style="background: rgba(133,34,82,0.1); color: var(--brand-primary); padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">Spiritual Classics</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">Gyaneshwari & Hari Gita Circles</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Unraveling eternal Vedic wisdom, devotion (Bhakti), and inner mastery through chapter-by-chapter collective readings and practical life application.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20the%20Gyaneshwari%20%2F%20Hari%20Gita%20Reading%20Circle." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Join Reading Circle</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">✨</span>
+                                <span style="background: rgba(201,150,74,0.15); color: #9c6819; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">Non-Duality & Love</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">A Course in Miracles Made Easy</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Alan Cohen's accessible path to releasing fear, choosing love over illusion, and experiencing daily spiritual peace.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20A%20Course%20in%20Miracles%20Reading%20Circle." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Join Reading Circle</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">🧘</span>
+                                <span style="background: rgba(34,82,59,0.1); color: var(--brand-forest); padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">Kriya & Devotion</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">RamCharitManas & Autobiography of a Yogi</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Sacred explorations into the lives of masters, divine grace, Paramahansa Yogananda’s spiritual awakening, and Ramayana’s archetypes of duty and surrender.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20the%20Autobiography%20of%20a%20Yogi%20Reading%20Circle." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Join Reading Circle</a>
+                    </div>
+
+                    <div class="program-card">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                                <span style="font-size: 26px;">🛶</span>
+                                <span style="background: rgba(196,56,120,0.1); color: var(--brand-accent); padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700;">Life Parables</span>
+                            </div>
+                            <h3 style="font-family: var(--font-display); font-size: 21px; color: var(--brand-primary); margin-bottom: 8px;">Manjhi The Boatman & Who Moved My Cheese</h3>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 14px;">
+                                Timeless fables on navigating personal transitions, overcoming fear of change, surrendering the ego, and crossing the river of worldly illusions.
+                            </p>
+                        </div>
+                        <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20am%20interested%20in%20the%20Parables%20Reading%20Circle." target="_blank" class="btn-plum" style="padding: 8px 16px; font-size: 13px; text-align: center;">Join Reading Circle</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- ABOUT AARTI GUPTA -->
     <section id="about" class="about-section">
         <div class="container">
@@ -1673,13 +2177,260 @@
         </div>
     </section>
 
+    <!-- MEDIA, ARTICLES & PUBLICATIONS -->
+    <section id="media" style="background: #ffffff; padding: 85px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Author & Media Features</span>
+                <h2 class="section-title">Published Works, Articles & Videos</h2>
+                <p class="section-subtitle">Explore Aarti Gupta's published book, national magazine columns on spiritual psychology, and video reflections.</p>
+            </div>
+
+            <!-- Featured Published Book Banner -->
+            <div style="background: linear-gradient(135deg, #fdf6f9 0%, #f7edf3 100%); border: 1px solid rgba(133,34,82,0.15); border-radius: 18px; padding: 32px; margin-bottom: 45px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; align-items: center;">
+                <div>
+                    <span style="background: var(--brand-primary); color: #ffffff; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Published Book</span>
+                    <h3 style="font-family: var(--font-display); font-size: 26px; color: var(--brand-primary); margin: 10px 0 8px;">Treasury of Thank Yous</h3>
+                    <p style="font-size: 14.5px; color: var(--text-dark); line-height: 1.6; margin-bottom: 16px;">
+                        Authored by Aarti Gupta. A heartfelt, practical guide to cultivating 360-degree gratitude in everyday life—turning ordinary moments of struggle into profound opportunities for love, acceptance, and abundance.
+                    </p>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <a href="https://www.amazon.in/dp/818878220X" target="_blank" class="btn-plum" style="padding: 9px 20px; font-size: 13.5px;">
+                            <span>📚</span> View on Amazon India
+                        </a>
+                        <a href="https://www.facebook.com/aarti.gupta.969/videos/10154421004905351/" target="_blank" class="btn-outline-subtle" style="padding: 9px 20px; font-size: 13.5px;">
+                            <span>▶️</span> Watch Book Preview
+                        </a>
+                    </div>
+                </div>
+                <div style="background: #ffffff; border-radius: 14px; padding: 22px; border: 1px solid var(--border-light); text-align: center;">
+                    <div style="font-size: 40px; margin-bottom: 8px;">📖✨</div>
+                    <h4 style="font-family: var(--font-display); font-size: 19px; color: var(--brand-primary); margin-bottom: 6px;">30-Day Gratitude Practice</h4>
+                    <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">
+                        Accompanied by ongoing interactive workshop circles and daily journaling prompts to anchor gratitude permanently into your subconscious mind.
+                    </p>
+                    <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20would%20like%20to%20know%20more%20about%20the%20Treasury%20of%20Thank%20Yous%20Book%20and%20Circles." target="_blank" style="font-size: 13px; color: var(--brand-accent); font-weight: 600; text-decoration: none;">
+                        Join Treasury of Thank Yous Circle &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Published Articles in Media -->
+            <div style="margin-bottom: 50px;">
+                <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--brand-primary); margin-bottom: 20px; text-align: center;">
+                    📰 Featured Articles & Magazine Columns
+                </h3>
+
+                <div class="media-grid">
+                    
+                    <div class="article-card">
+                        <div>
+                            <span style="font-size: 12px; font-weight: 700; color: var(--brand-accent); text-transform: uppercase;">Life Positive Magazine</span>
+                            <h4 style="font-family: var(--font-display); font-size: 19px; color: var(--brand-primary); margin: 8px 0 10px;">Aarti in Wonderland (Denver Feature)</h4>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 16px;">
+                                A captivating exploration of Aarti Gupta’s transformative journey at the international Heal Your Life® worldwide intensive in Denver, Colorado.
+                            </p>
+                        </div>
+                        <a href="assets/articles/Aarti%20in%20Wonderland%20Denver%20Life%20Positive.pdf" target="_blank" class="btn-outline-subtle" style="font-size: 13px; padding: 8px 16px; text-align: center;">
+                            <span>📄</span> Read Article (PDF) &rarr;
+                        </a>
+                    </div>
+
+                    <div class="article-card">
+                        <div>
+                            <span style="font-size: 12px; font-weight: 700; color: var(--brand-accent); text-transform: uppercase;">Life Positive Magazine</span>
+                            <h4 style="font-family: var(--font-display); font-size: 19px; color: var(--brand-primary); margin: 8px 0 10px;">Marriage & Sacred Relationships</h4>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 16px;">
+                                Navigating marital dynamics, emotional projection, and bridging differences through conscious communication and unconditional self-love.
+                            </p>
+                        </div>
+                        <a href="assets/articles/LifePositive-AG-Marriage.pdf" target="_blank" class="btn-outline-subtle" style="font-size: 13px; padding: 8px 16px; text-align: center;">
+                            <span>📄</span> Read Article (PDF) &rarr;
+                        </a>
+                    </div>
+
+                    <div class="article-card">
+                        <div>
+                            <span style="font-size: 12px; font-weight: 700; color: var(--brand-accent); text-transform: uppercase;">Life Positive Magazine</span>
+                            <h4 style="font-family: var(--font-display); font-size: 19px; color: var(--brand-primary); margin: 8px 0 10px;">Enough Already (Emotional Freedom)</h4>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 16px;">
+                                Insights on breaking free from chronic perfectionism, toxic self-demands, and stepping into the empowering realization of "I am enough".
+                            </p>
+                        </div>
+                        <a href="assets/articles/Life%20Positive-AG-Enough%20Already.pdf" target="_blank" class="btn-outline-subtle" style="font-size: 13px; padding: 8px 16px; text-align: center;">
+                            <span>📄</span> Read Article (PDF) &rarr;
+                        </a>
+                    </div>
+
+                    <div class="article-card">
+                        <div>
+                            <span style="font-size: 12px; font-weight: 700; color: var(--brand-accent); text-transform: uppercase;">Naree Magazine</span>
+                            <h4 style="font-family: var(--font-display); font-size: 19px; color: var(--brand-primary); margin: 8px 0 10px;">Reiki & Holistic Energy Healing</h4>
+                            <p style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 16px;">
+                                Feature story highlighting Aarti Gupta’s 25+ years dedicated service empowering women and families through Usui Reiki healing in Mumbai.
+                            </p>
+                        </div>
+                        <a href="assets/articles/AAG%20Naree-Reiki.pdf" target="_blank" class="btn-outline-subtle" style="font-size: 13px; padding: 8px 16px; text-align: center;">
+                            <span>📄</span> Read Article (PDF) &rarr;
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Curated Video Library -->
+            <div>
+                <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--brand-primary); margin-bottom: 20px; text-align: center;">
+                    🎥 Curated Video Library & Reflections
+                </h3>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+                    
+                    <div style="background: var(--bg-soft); border-radius: 14px; padding: 20px; border: 1px solid var(--border-light);">
+                        <div style="font-size: 28px; margin-bottom: 8px;">✨</div>
+                        <h4 style="font-family: var(--font-display); font-size: 17px; color: var(--brand-primary); margin-bottom: 6px;">Your Words & Thoughts Create Your World</h4>
+                        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">Louise Hay’s timeless wisdom on thought power.</p>
+                        <a href="https://www.youtube.com/watch?v=3LeONMkIfdo" target="_blank" style="font-size: 13px; color: var(--brand-accent); font-weight: 600; text-decoration: none;">Watch on YouTube &rarr;</a>
+                    </div>
+
+                    <div style="background: var(--bg-soft); border-radius: 14px; padding: 20px; border: 1px solid var(--border-light);">
+                        <div style="font-size: 28px; margin-bottom: 8px;">🌸</div>
+                        <h4 style="font-family: var(--font-display); font-size: 17px; color: var(--brand-primary); margin-bottom: 6px;">Grace & Gratitude</h4>
+                        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">Reflections with Aarti Gupta on living in gratitude.</p>
+                        <a href="https://youtu.be/NcfcPoQShDQ" target="_blank" style="font-size: 13px; color: var(--brand-accent); font-weight: 600; text-decoration: none;">Watch on YouTube &rarr;</a>
+                    </div>
+
+                    <div style="background: var(--bg-soft); border-radius: 14px; padding: 20px; border: 1px solid var(--border-light);">
+                        <div style="font-size: 28px; margin-bottom: 8px;">🌱</div>
+                        <h4 style="font-family: var(--font-display); font-size: 17px; color: var(--brand-primary); margin-bottom: 6px;">Affirmations for Covid-19</h4>
+                        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">Grounding affirmative prayers during challenging times.</p>
+                        <a href="https://youtu.be/u1ikvhTqO8Y" target="_blank" style="font-size: 13px; color: var(--brand-accent); font-weight: 600; text-decoration: none;">Watch on YouTube &rarr;</a>
+                    </div>
+
+                    <div style="background: var(--bg-soft); border-radius: 14px; padding: 20px; border: 1px solid var(--border-light);">
+                        <div style="font-size: 28px; margin-bottom: 8px;">💬</div>
+                        <h4 style="font-family: var(--font-display); font-size: 17px; color: var(--brand-primary); margin-bottom: 6px;">Workshop Participant Feedback</h4>
+                        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">Live sharing and breakthroughs from participants.</p>
+                        <a href="https://www.facebook.com/269984626390436/videos/762005293855031" target="_blank" style="font-size: 13px; color: var(--brand-accent); font-weight: 600; text-decoration: none;">Watch on Facebook &rarr;</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MOMENTS PHOTO GALLERY -->
+    <section id="gallery" style="background: var(--bg-card); padding: 85px 0; border-bottom: 1px solid var(--border-light);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">25+ Years of Transformative Gatherings</span>
+                <h2 class="section-title">Moments of Connection & Healing</h2>
+                <p class="section-subtitle">Snapshots across workshops, international trainings with masters Patricia Crane & Rick Nichols, youth laboratories, and healing circles.</p>
+            </div>
+
+            <div class="gallery-grid">
+                
+                <div class="gallery-card">
+                    <img src="assets/gallery/gallery_1.jpg" alt="Aarti Gupta with Master Trainers Dr. Patricia Crane and Rick Nichols" loading="lazy">
+                    <div class="gallery-overlay">With Global Mentors Patricia Crane & Rick Nichols</div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="assets/gallery/gallery_2.jpg" alt="Heal Your Life Workshop Cohort Circle" loading="lazy">
+                    <div class="gallery-overlay">Heal Your Life® Transformational Cohort</div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="assets/gallery/gallery_3.jpg" alt="Youth & Teen Personal Growth Laboratory" loading="lazy">
+                    <div class="gallery-overlay">Youth & Adolescent Personal Growth Lab</div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="assets/gallery/gallery_4.jpg" alt="Louise Hay Affirmation & Heart Work Session" loading="lazy">
+                    <div class="gallery-overlay">Inner Child & Affirmation Circle</div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="assets/gallery/gallery_5.jpg" alt="Interactive Experiential Workshop" loading="lazy">
+                    <div class="gallery-overlay">Experiential Learning & Reflection</div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="assets/gallery/gallery_6.jpg" alt="Reiki Certification & Attunement Ceremony" loading="lazy">
+                    <div class="gallery-overlay">Reiki Degree Certification & Attunement</div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="assets/gallery/gallery_7.jpg" alt="Sound Healing & Meditation Immersion" loading="lazy">
+                    <div class="gallery-overlay">Sound Healing & Meditation Circle</div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="assets/gallery/gallery_8.jpg" alt="Group Forgiveness and Emotional Release Process" loading="lazy">
+                    <div class="gallery-overlay">Forgiveness & Emotional Release Process</div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="assets/gallery/gallery_9.jpg" alt="Healing Circle Community Celebration" loading="lazy">
+                    <div class="gallery-overlay">Community Celebration & Joy</div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="assets/gallery/gallery_10.jpg" alt="Faculty Development Program Session" loading="lazy">
+                    <div class="gallery-overlay">Institutional Faculty Development Program</div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="assets/gallery/gallery_11.jpg" alt="Healing Circle Sacred Altar & Energy Tools" loading="lazy">
+                    <div class="gallery-overlay">Sacred Altar & Crystal Energy Tools</div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="assets/gallery/gallery_12.jpg" alt="Aarti Gupta Facilitating Workshop Group" loading="lazy">
+                    <div class="gallery-overlay">Aarti Gupta Guiding Group Meditation</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- COMMUNITY & WEEKLY CIRCLES -->
-    <div id="community" class="community-strip">
+    <section id="community" style="background: var(--bg-soft); padding: 85px 0; border-bottom: 1px solid var(--border-light);">
         <div class="container">
             <div class="section-header" style="margin-bottom: 35px;">
-                <span class="section-eyebrow">Giving Back to the Community</span>
-                <h2 class="section-title">Open Circles & Community Support</h2>
-                <p class="section-subtitle">Because everyone deserves a safe space to be heard, held, and supported.</p>
+                <span class="section-eyebrow">Giving Back to Society</span>
+                <h2 class="section-title">Community Outreach & Open Circles</h2>
+                <p class="section-subtitle">Because healing ripples outward into society when we support each other with compassion.</p>
+            </div>
+
+            <!-- Project Blossom Card -->
+            <div class="blossom-banner" style="margin-bottom: 35px;">
+                <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 14px;">
+                    <div>
+                        <span style="background: var(--brand-accent); color: #ffffff; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 700; text-transform: uppercase;">Community Outreach Initiative</span>
+                        <h3 style="font-family: var(--font-display); font-size: 24px; color: var(--brand-primary); margin: 8px 0 4px;">Project Blossom (Formerly Project Survive)</h3>
+                        <span style="font-size: 13.5px; color: var(--brand-accent); font-style: italic; font-weight: 500;">From COVID-19 Survival Support to Nurturing Potential</span>
+                    </div>
+                    <div style="background: #ffffff; border: 1px solid rgba(133,34,82,0.15); border-radius: 12px; padding: 12px 18px; text-align: center;">
+                        <span style="font-size: 12px; color: var(--text-muted); display: block; margin-bottom: 2px;">Support via GPay</span>
+                        <strong style="font-size: 16px; color: var(--brand-primary);">9321598162</strong>
+                    </div>
+                </div>
+
+                <p style="font-size: 14.5px; color: var(--text-dark); line-height: 1.65; margin-bottom: 14px;">
+                    The COVID-19 pandemic was a transformative experience for Healing Circle. To provide succour to the socio-economically challenged strata of society, <strong>Project Survive</strong> was initiated providing education, food, and essentials.
+                </p>
+                <p style="font-size: 14.5px; color: var(--text-dark); line-height: 1.65; margin-bottom: 16px;">
+                    With your continuous contributions, our journey has transpired into <strong>Project Blossom</strong>. Over the past few years, we have focused on empowering street and underprivileged children by supporting their <strong>academic, nutritional, medical, and emotional well-being</strong>.
+                </p>
+
+                <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/919321598162?text=Hello%20Aarti%20Ji%2C%20I%20would%20like%20to%20contribute%20or%20support%20Project%20Blossom." target="_blank" class="btn-plum" style="padding: 8px 20px; font-size: 13.5px;">
+                        <span>🌸</span> Connect to Support Project Blossom
+                    </a>
+                    <span style="font-size: 13px; color: var(--text-muted); font-style: italic;">Your voluntary contributions are warmly welcome to keep it going.</span>
+                </div>
             </div>
 
             <div class="community-grid">
@@ -1706,7 +2457,7 @@
 
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- TESTIMONIALS -->
     <section id="testimonials">
@@ -1980,11 +2731,14 @@
                     <h5>Quick Links</h5>
                     <ul>
                         <li><a href="#services">Services & Modalities</a></li>
+                        <li><a href="#programs">Workshops & Circles</a></li>
                         <li><a href="#about">About Aarti</a></li>
                         <li><a href="#background">Institutional Track Record</a></li>
+                        <li><a href="#media">Articles & Publications</a></li>
+                        <li><a href="#gallery">Moments Gallery</a></li>
+                        <li><a href="#community">Project Blossom</a></li>
                         <li><a href="retreat/">Heal Your Life® Retreat 2026</a></li>
                         <li><a href="https://youtu.be/wPe3uda86Sc" target="_blank">Video Testimonials (YouTube)</a></li>
-                        <li><a href="http://tinyurl.com/lq2csmn" target="_blank">Participant Testimonials</a></li>
                     </ul>
                 </div>
 
@@ -2014,8 +2768,16 @@
         <span>WhatsApp Healing Circle</span>
     </a>
 
-    <!-- FORM SUBMISSION & GALLERY SCRIPT -->
+    <!-- SCRIPTS -->
     <script>
+        function switchProgramTab(tabId, btn) {
+            document.querySelectorAll('.tab-content-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            const target = document.getElementById(tabId);
+            if (target) target.classList.add('active');
+            if (btn) btn.classList.add('active');
+        }
+
         function changeAboutPhoto(src, btn) {
             const mainImg = document.getElementById('aboutMainPhoto');
             if (mainImg) {
