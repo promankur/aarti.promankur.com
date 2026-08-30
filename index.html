@@ -153,7 +153,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 0;
+            min-height: 72px;
+            padding: 10px 0;
+            gap: 12px;
         }
 
         .brand-logo-wrap {
@@ -161,6 +163,7 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
+            flex-shrink: 0;
         }
 
         .brand-avatar {
@@ -191,6 +194,7 @@
             color: var(--brand-primary);
             letter-spacing: 0.3px;
             line-height: 1.15;
+            white-space: nowrap;
         }
 
         .brand-sub {
@@ -199,47 +203,68 @@
             letter-spacing: 1.4px;
             color: var(--text-muted);
             font-weight: 600;
+            white-space: nowrap;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 4px;
             list-style: none;
+            flex-wrap: nowrap;
+        }
+
+        .nav-links li {
+            white-space: nowrap;
         }
 
         .nav-links a {
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 600;
             color: var(--text-dark);
-            position: relative;
-            padding: 4px 0;
+            white-space: nowrap;
+            padding: 6px 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-block;
         }
 
         .nav-links a:hover {
+            background: rgba(133, 34, 82, 0.08);
             color: var(--brand-primary);
         }
 
         .nav-links a.highlight-pill {
-            background: var(--brand-soft-pink);
+            background: linear-gradient(135deg, #fcedf4 0%, #f7dbe8 100%);
             color: var(--brand-primary);
-            padding: 5px 12px;
+            padding: 6px 12px;
             border-radius: var(--radius-pill);
-            border: 1px solid var(--border-subtle);
+            border: 1px solid rgba(196, 56, 120, 0.3);
+            font-weight: 700;
+        }
+
+        .nav-links a.highlight-pill:hover {
+            background: var(--brand-primary);
+            color: #ffffff;
         }
 
         .header-cta-btn {
             background: var(--brand-primary);
             color: #ffffff !important;
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 600;
-            padding: 9px 22px;
+            padding: 9px 18px;
             border-radius: var(--radius-pill);
             box-shadow: 0 4px 14px rgba(133, 34, 82, 0.25);
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
             transition: all 0.25s ease;
+            margin-left: 6px;
         }
 
         .header-cta-btn:hover {
@@ -1453,10 +1478,10 @@
 
                 <ul class="nav-links">
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#programs">Workshops & Circles</a></li>
+                    <li><a href="#programs">Workshops</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#background">Track Record</a></li>
-                    <li><a href="#media">Articles & Media</a></li>
+                    <li><a href="#media">Media</a></li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#community">Community</a></li>
                     <li><a href="retreat/" class="highlight-pill">🌲 Oct 2026 Retreat</a></li>
@@ -2303,34 +2328,50 @@
                     🎥 Curated Video Library & Reflections
                 </h3>
 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
                     
-                    <div style="background: var(--bg-soft); border-radius: 14px; padding: 20px; border: 1px solid var(--border-light);">
-                        <div style="font-size: 28px; margin-bottom: 8px;">✨</div>
-                        <h4 style="font-family: var(--font-display); font-size: 17px; color: var(--brand-primary); margin-bottom: 6px;">Your Words & Thoughts Create Your World</h4>
-                        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">Louise Hay’s timeless wisdom on thought power.</p>
-                        <a href="https://www.youtube.com/watch?v=3LeONMkIfdo" target="_blank" style="font-size: 13px; color: var(--brand-accent); font-weight: 600; text-decoration: none;">Watch on YouTube &rarr;</a>
+                    <div style="background: #ffffff; border-radius: 16px; padding: 24px 20px; border: 1.5px solid var(--border-light); box-shadow: 0 4px 16px rgba(133,34,82,0.04); display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="font-size: 26px; margin-bottom: 10px;">✨</div>
+                            <h4 style="font-family: var(--font-display); font-size: 17px; color: var(--brand-primary); margin-bottom: 8px; line-height: 1.35;">Your Words & Thoughts Create Your World</h4>
+                            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-bottom: 16px;">Louise Hay’s timeless wisdom on the creative power of thoughts and spoken words.</p>
+                        </div>
+                        <a href="https://www.youtube.com/watch?v=3LeONMkIfdo" target="_blank" class="btn-outline-subtle" style="font-size: 12.5px; padding: 7px 14px; text-align: center; text-decoration: none;">
+                            <span>▶</span> Watch on YouTube &rarr;
+                        </a>
                     </div>
 
-                    <div style="background: var(--bg-soft); border-radius: 14px; padding: 20px; border: 1px solid var(--border-light);">
-                        <div style="font-size: 28px; margin-bottom: 8px;">🌸</div>
-                        <h4 style="font-family: var(--font-display); font-size: 17px; color: var(--brand-primary); margin-bottom: 6px;">Grace & Gratitude</h4>
-                        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">Reflections with Aarti Gupta on living in gratitude.</p>
-                        <a href="https://youtu.be/NcfcPoQShDQ" target="_blank" style="font-size: 13px; color: var(--brand-accent); font-weight: 600; text-decoration: none;">Watch on YouTube &rarr;</a>
+                    <div style="background: #ffffff; border-radius: 16px; padding: 24px 20px; border: 1.5px solid var(--border-light); box-shadow: 0 4px 16px rgba(133,34,82,0.04); display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="font-size: 26px; margin-bottom: 10px;">🌸</div>
+                            <h4 style="font-family: var(--font-display); font-size: 17px; color: var(--brand-primary); margin-bottom: 8px; line-height: 1.35;">Grace & Gratitude</h4>
+                            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-bottom: 16px;">Reflections with Aarti Gupta on living in continuous thankfulness and inner alignment.</p>
+                        </div>
+                        <a href="https://youtu.be/NcfcPoQShDQ" target="_blank" class="btn-outline-subtle" style="font-size: 12.5px; padding: 7px 14px; text-align: center; text-decoration: none;">
+                            <span>▶</span> Watch on YouTube &rarr;
+                        </a>
                     </div>
 
-                    <div style="background: var(--bg-soft); border-radius: 14px; padding: 20px; border: 1px solid var(--border-light);">
-                        <div style="font-size: 28px; margin-bottom: 8px;">🌱</div>
-                        <h4 style="font-family: var(--font-display); font-size: 17px; color: var(--brand-primary); margin-bottom: 6px;">Affirmations for Covid-19</h4>
-                        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">Grounding affirmative prayers during challenging times.</p>
-                        <a href="https://youtu.be/u1ikvhTqO8Y" target="_blank" style="font-size: 13px; color: var(--brand-accent); font-weight: 600; text-decoration: none;">Watch on YouTube &rarr;</a>
+                    <div style="background: #ffffff; border-radius: 16px; padding: 24px 20px; border: 1.5px solid var(--border-light); box-shadow: 0 4px 16px rgba(133,34,82,0.04); display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="font-size: 26px; margin-bottom: 10px;">🌱</div>
+                            <h4 style="font-family: var(--font-display); font-size: 17px; color: var(--brand-primary); margin-bottom: 8px; line-height: 1.35;">Affirmations for Covid-19</h4>
+                            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-bottom: 16px;">Grounding affirmative prayers and emotional resilience during challenging collective times.</p>
+                        </div>
+                        <a href="https://youtu.be/u1ikvhTqO8Y" target="_blank" class="btn-outline-subtle" style="font-size: 12.5px; padding: 7px 14px; text-align: center; text-decoration: none;">
+                            <span>▶</span> Watch on YouTube &rarr;
+                        </a>
                     </div>
 
-                    <div style="background: var(--bg-soft); border-radius: 14px; padding: 20px; border: 1px solid var(--border-light);">
-                        <div style="font-size: 28px; margin-bottom: 8px;">💬</div>
-                        <h4 style="font-family: var(--font-display); font-size: 17px; color: var(--brand-primary); margin-bottom: 6px;">Workshop Participant Feedback</h4>
-                        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">Live sharing and breakthroughs from participants.</p>
-                        <a href="https://www.facebook.com/269984626390436/videos/762005293855031" target="_blank" style="font-size: 13px; color: var(--brand-accent); font-weight: 600; text-decoration: none;">Watch on Facebook &rarr;</a>
+                    <div style="background: #ffffff; border-radius: 16px; padding: 24px 20px; border: 1.5px solid var(--border-light); box-shadow: 0 4px 16px rgba(133,34,82,0.04); display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div style="font-size: 26px; margin-bottom: 10px;">💬</div>
+                            <h4 style="font-family: var(--font-display); font-size: 17px; color: var(--brand-primary); margin-bottom: 8px; line-height: 1.35;">Participant Reflections</h4>
+                            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-bottom: 16px;">Live sharing and emotional breakthroughs from Heal Your Life® workshop participants.</p>
+                        </div>
+                        <a href="https://www.facebook.com/269984626390436/videos/762005293855031" target="_blank" class="btn-outline-subtle" style="font-size: 12.5px; padding: 7px 14px; text-align: center; text-decoration: none;">
+                            <span>▶</span> Watch on Facebook &rarr;
+                        </a>
                     </div>
 
                 </div>

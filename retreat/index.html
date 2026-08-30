@@ -132,7 +132,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 0;
+            min-height: 72px;
+            padding: 10px 0;
+            gap: 16px;
         }
 
         .brand-logo-wrap {
@@ -140,6 +142,7 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
+            flex-shrink: 0;
         }
 
         .brand-avatar {
@@ -170,6 +173,7 @@
             color: var(--brand-primary);
             letter-spacing: 0.3px;
             line-height: 1.15;
+            white-space: nowrap;
         }
 
         .brand-sub {
@@ -178,54 +182,54 @@
             letter-spacing: 1.4px;
             color: var(--text-muted);
             font-weight: 600;
+            white-space: nowrap;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 28px;
+            gap: 6px;
             list-style: none;
+            flex-wrap: nowrap;
+        }
+
+        .nav-links li {
+            white-space: nowrap;
         }
 
         .nav-links a {
-            font-size: 14px;
+            font-size: 13.5px;
             font-weight: 600;
             color: var(--text-dark);
-            position: relative;
-            padding: 4px 0;
+            white-space: nowrap;
+            padding: 6px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-block;
         }
 
         .nav-links a:hover {
+            background: rgba(138, 36, 85, 0.08);
             color: var(--brand-primary);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--brand-primary);
-            transition: width 0.2s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
         }
 
         .header-cta-btn {
             background: var(--brand-primary);
             color: #ffffff !important;
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 600;
-            padding: 9px 22px;
+            padding: 9px 20px;
             border-radius: var(--radius-pill);
             box-shadow: 0 4px 14px rgba(138, 36, 85, 0.25);
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            text-decoration: none;
+            white-space: nowrap;
+            flex-shrink: 0;
             transition: all 0.25s ease;
+            margin-left: 8px;
         }
 
         .header-cta-btn:hover {
@@ -625,36 +629,243 @@
             color: var(--text-body);
         }
 
-        .about-stat-box {
-            background: #ffffff;
-            border: 1px solid var(--border-subtle);
-            border-left: 4px solid var(--brand-primary);
-            border-radius: var(--radius-sm);
-            padding: 20px 24px;
-            margin-top: 24px;
-            box-shadow: var(--shadow-sm);
+        /* -------------------------------------------
+           UNIFIED LOUISE HAY HERITAGE PANEL
+        ------------------------------------------- */
+        .louise-hay-heritage-panel {
+            background: linear-gradient(135deg, #fffafd 0%, #fdf3f8 100%);
+            border: 1.5px solid rgba(196, 56, 120, 0.22);
+            border-radius: var(--radius-lg);
+            padding: 36px 40px;
+            box-shadow: 0 10px 32px rgba(138, 36, 85, 0.08);
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 36px;
+            align-items: center;
         }
 
-        .about-stat-number {
+        .framed-artwork-wrap {
+            text-align: center;
+        }
+
+        .framed-artwork-wrap img {
+            max-height: 260px;
+            width: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(138, 36, 85, 0.14);
+            border: 3px solid #ffffff;
+            object-fit: contain;
+        }
+
+        .heritage-eyebrow {
+            font-size: 11.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--brand-accent);
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .heritage-name {
+            font-family: var(--font-display);
+            font-size: 28px;
+            color: var(--brand-primary);
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+
+        .heritage-dates {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .heritage-title {
+            font-size: 14.5px;
+            color: var(--brand-accent);
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .heritage-stats-banner {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            border: 1px solid rgba(196, 56, 120, 0.15);
+        }
+
+        .heritage-stat-badge {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .heritage-stat-badge .stat-num {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--brand-primary);
+            line-height: 1.1;
+        }
+
+        .heritage-stat-badge .stat-label {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .heritage-quote {
+            font-family: var(--font-serif);
+            font-size: 15.5px;
+            font-style: italic;
+            color: var(--brand-primary-dark);
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        /* -------------------------------------------
+           CO-ORGANIZER PROFILE CARD (Kavita Awasthi)
+        ------------------------------------------- */
+        .co-organizer-card {
+            margin-top: 40px;
+            background: linear-gradient(135deg, #ffffff 0%, #fdf6fa 100%);
+            border: 1.5px solid rgba(138, 36, 85, 0.18);
+            border-radius: var(--radius-lg);
+            padding: 42px;
+            box-shadow: 0 10px 32px rgba(138, 36, 85, 0.07);
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .co-org-sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px 22px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+        }
+
+        .co-org-avatar-badge {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #faedf3 0%, #f3dbe8 100%);
+            color: var(--brand-primary);
             font-family: var(--font-display);
             font-size: 30px;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid #ffffff;
+            box-shadow: 0 4px 14px rgba(138, 36, 85, 0.15);
+            margin-bottom: 14px;
+        }
+
+        .co-org-sidebar h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
             color: var(--brand-primary);
-            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .co-org-role {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .co-org-pills {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+            margin-bottom: 22px;
+        }
+
+        .co-org-pill {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--brand-primary);
+            background: var(--brand-petal-bg);
+            padding: 7px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(138, 36, 85, 0.12);
+            text-align: left;
+        }
+
+        .co-org-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .co-org-main-content h3 {
+            font-family: var(--font-display);
+            font-size: 26px;
+            color: var(--brand-primary);
             margin-bottom: 6px;
         }
 
-        .about-stat-desc {
-            font-size: 14px;
-            color: var(--text-muted);
+        .co-org-sub {
+            font-size: 14.5px;
+            color: var(--brand-accent);
+            font-weight: 600;
+            margin-bottom: 18px;
+            display: block;
         }
 
-        .about-visual-card {
+        .co-org-bio-para {
+            font-size: 15px;
+            color: var(--text-body);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .co-org-quote-box {
+            margin-top: 20px;
+            padding: 20px 24px;
             background: #ffffff;
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            box-shadow: var(--shadow-md);
+            border-radius: 14px;
+            border-left: 4px solid var(--brand-primary);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+            border-top: 1px solid var(--border-light);
+            border-right: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .co-org-quote-box p {
+            font-family: var(--font-serif);
+            font-size: 15px;
+            font-style: italic;
+            color: var(--brand-primary-dark);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 992px) {
+            .louise-hay-heritage-panel, .co-organizer-card {
+                grid-template-columns: 1fr;
+                padding: 28px 22px;
+                text-align: left;
+            }
+            .co-org-sidebar {
+                text-align: center;
+            }
         }
 
         .core-principles-list {
@@ -1728,11 +1939,11 @@
                 </a>
 
                 <ul class="nav-links">
-                    <li><a href="#about">About Retreat</a></li>
-                    <li><a href="#pillars">Key Takeaways</a></li>
-                    <li><a href="#venue">Sumiran Forest</a></li>
-                    <li><a href="#details">Dates & Details</a></li>
-                    <li><a href="#facilitator">Aarti Gupta</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#pillars">Takeaways</a></li>
+                    <li><a href="#venue">Forest Venue</a></li>
+                    <li><a href="#details">Schedule & Details</a></li>
+                    <li><a href="#facilitator">Facilitators</a></li>
                     <li><a href="#faq">FAQ</a></li>
                 </ul>
 
@@ -1831,39 +2042,51 @@
     <!-- 1. ABOUT SECTION -->
     <section id="about">
         <div class="container">
+            
+            <!-- UNIFIED LOUISE HAY HERITAGE PANEL -->
+            <div class="louise-hay-heritage-panel">
+                <div class="framed-artwork-wrap">
+                    <img src="assets/louise_hay_leaf_portrait.jpg" alt="Louise Hay Peepal Leaf Portrait Framed Artwork">
+                </div>
+                <div class="heritage-content-col">
+                    <span class="heritage-eyebrow">The Transformational Legacy</span>
+                    <h3 class="heritage-name">Louise L. Hay <span class="heritage-dates">(1926–2017)</span></h3>
+                    <p class="heritage-title">Visionary Author of <em>You Can Heal Your Life</em> & Founder of Heal Your Life®</p>
+                    
+                    <div class="heritage-stats-banner">
+                        <div class="heritage-stat-badge">
+                            <span class="stat-num">50+ Million Copies</span>
+                            <span class="stat-label">Sold Worldwide across 130+ Countries in 30+ Languages</span>
+                        </div>
+                    </div>
+
+                    <p class="heritage-quote">
+                        <em>"Every thought we think is creating our future. The point of power is always in the present moment. Loving yourself is the most powerful tool you have to heal your life."</em>
+                    </p>
+                </div>
+            </div>
+
+            <!-- WORKSHOP DETAILS & WHY IT'S UNIQUE -->
             <div class="about-workshop-grid">
                 
                 <div class="about-text-content">
                     <span class="section-eyebrow">About This Residential Workshop</span>
-                    <h2 class="section-title" style="text-align: left; font-size: 33px;">
+                    <h2 class="section-title" style="text-align: left; font-size: 32px;">
                         A sacred container for deep, lasting transformation.
                     </h2>
-
-                    <!-- Louise Hay Peepal Leaf Portrait Framed Artwork -->
-                    <div style="text-align: center; margin: 20px 0 24px; padding: 16px; background: linear-gradient(135deg, #fffbfd 0%, #fdf5f8 100%); border-radius: 16px; border: 1px solid rgba(133, 34, 82, 0.15);">
-                        <img src="assets/louise_hay_leaf_portrait.jpg" alt="Louise Hay Peepal Leaf Portrait Framed Artwork" style="max-height: 250px; border-radius: 12px; box-shadow: 0 8px 24px rgba(133, 34, 82, 0.12); object-fit: contain;">
-                        <div style="font-family: var(--font-display); font-size: 15px; color: var(--brand-primary); font-weight: 700; margin-top: 10px;">Louise L. Hay (1926–2017)</div>
-                        <div style="font-size: 12.5px; color: var(--brand-accent); font-style: italic;">Visionary Author of <em>You Can Heal Your Life</em> & Founder of Heal Your Life®</div>
-                    </div>
-
                     <p>
-                        The <strong>Love Yourself, Heal Your Life®</strong> workshop is a globally acclaimed, experiential journey designed by Louise L. Hay—the legendary author whose iconic book <em>"You Can Heal Your Life"</em> has sold over <strong>50 million copies worldwide</strong>.
+                        The <strong>Love Yourself, Heal Your Life®</strong> workshop is a globally acclaimed, experiential journey designed by Louise L. Hay—authorized and licensed by Hay House, Inc.
                     </p>
                     <p>
-                        Far beyond an ordinary seminar, this is an immersive residential retreat. Away from urban distractions and routine pressures, you will be guided through gentle yet profound somatic, mental, and spiritual processes to uncover the root causes of recurring life patterns.
+                        Far beyond an ordinary seminar, this is an immersive 2-day residential retreat (with 2 nights forest stay). Away from urban distractions and routine pressures, you will be guided through gentle yet profound somatic, mental, and spiritual processes to uncover the root causes of recurring life patterns.
                     </p>
                     <p>
                         By combining guided introspection, mirror work, inner-child healing, and forgiveness exercises, you will release old self-limiting scripts and cultivate an unshakeable foundation of genuine self-love.
                     </p>
-
-                    <div class="about-stat-box">
-                        <div class="about-stat-number">50+ Million Copies</div>
-                        <div class="about-stat-desc">Louise Hay's philosophy has touched and transformed millions of lives across 130+ countries over 4 decades.</div>
-                    </div>
                 </div>
 
                 <div class="about-visual-card">
-                    <h3 style="font-family: var(--font-display); font-size: 23px; color: var(--brand-primary); margin-bottom: 18px;">
+                    <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--brand-primary); margin-bottom: 18px;">
                         What makes this retreat unique?
                     </h3>
                     <ul class="core-principles-list">
@@ -2184,36 +2407,58 @@
                 </div>
             </div>
 
-            <!-- Kavita Awasthi Bio Card -->
-            <div class="facilitator-card-main" style="margin-top: 36px; background: linear-gradient(135deg, #ffffff 0%, #faf6f8 100%);">
-                <div class="facilitator-info-box" style="width: 100%; padding: 36px;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
-                        <h2 style="font-size: 28px; margin: 0;">Kavita Awasthi</h2>
-                        <span class="step-badge" style="background: var(--brand-accent); color: #fff; font-size: 12.5px; padding: 4px 12px; border-radius: 20px;">TTA Circle Organizer</span>
-                    </div>
-                    <div class="facilitator-role-subtitle">
-                        <span>🌱</span> Practicing Counselling Psychologist • Founder, <a href="https://www.ttacircle.com/" target="_blank" style="color: var(--brand-primary); text-decoration: underline;">TTA Circle</a> <em>(Tat Tvam Asi)</em>
+            <!-- Kavita Awasthi Co-Organizer Profile Card -->
+            <div class="co-organizer-card">
+                
+                <!-- Left Sidebar: Identity & Badges -->
+                <div class="co-org-sidebar">
+                    <div class="co-org-avatar-badge">KA</div>
+                    <h3>Kavita Awasthi</h3>
+                    <span class="co-org-role">Counselling Psychologist • Retreat Co-Organizer</span>
+
+                    <div class="co-org-pills">
+                        <div class="co-org-pill">🌱 7+ Years Clinical Psychology (Post-Masters)</div>
+                        <div class="co-org-pill">🌍 21+ Years Global Corporate Experience</div>
+                        <div class="co-org-pill">✨ Founder, TTA Circle <em>(Tat Tvam Asi)</em></div>
                     </div>
 
-                    <p class="facilitator-bio-text" style="margin-top: 14px;">
-                        <strong>Kavita Awasthi</strong> is a practicing Counselling Psychologist, with 7+ years’ experience post her Masters. Her personal interest area being Talent and Health. Under the umbrella of <a href="https://www.ttacircle.com/" target="_blank" style="color: var(--brand-primary); font-weight: 600;">TTA Circle</a> <strong>(Tat Tvam Asi)</strong>, she has worked extensively with clients of almost all age groups helping their journey of improving self-understanding and overall health (physical, emotional, occupational, relationship, mental, spiritual, etc.).
-                    </p>
-                    <p class="facilitator-bio-text">
-                        Her approach to health and healing incorporates the gems that she has gained personally in her life journey, be it through her developmental years travelling and living across India, her previous career experience of 21+ years in financial services sector around the world, which has been followed by her venture into her present profession.
-                    </p>
-                    <p class="facilitator-bio-text" style="color: var(--brand-primary); font-weight: 500;">
-                        <em>"It is with great pleasure and conviction that Kavita and TTA Circle team bring to you this deep impact programme, which will include – Heal Your Life® (HYL) designed by Louise L Hay, being conducted by Mrs. Aarti Gupta, a highly experienced International HYL Trainer and Counselling Psychologist herself; Forest-healing energies of SUMIRAN Eco-forest, with nourishment and nurturing of Land’s End Resort; and Introduction to Life Without Medicine programme. We hope our participants will feel the transformational and energising healing of this programme – to nourish their body, heart, mind and soul. We look forward to welcoming you."</em>
-                    </p>
-
-                    <div class="facilitator-links-row" style="margin-top: 20px;">
-                        <a href="https://wa.me/919004049099?text=Hello%20Kavita%2C%20I%20would%20like%20to%20connect%20regarding%20the%20Oct%202026%20Heal%20Your%20Life%20Retreat." target="_blank" class="btn-whatsapp-primary" style="padding: 10px 22px; font-size: 13.5px;">
-                            <span>💬</span> WhatsApp Kavita (900404 9099)
+                    <div class="co-org-actions">
+                        <a href="https://wa.me/919004049099?text=Hello%20Kavita%2C%20I%20would%20like%20to%20connect%20regarding%20the%20Oct%202026%20Heal%20Your%20Life%20Retreat." target="_blank" class="btn-whatsapp-primary" style="padding: 10px 18px; font-size: 13px; text-align: center; width: 100%; justify-content: center;">
+                            <span>💬</span> WhatsApp Kavita
                         </a>
-                        <a href="https://www.ttacircle.com/" target="_blank" class="btn-outline-subtle" style="padding: 10px 20px; font-size: 13.5px;">
-                            <span>🌐</span> Visit TTA Circle Website
+                        <a href="https://www.ttacircle.com/" target="_blank" class="btn-outline-subtle" style="padding: 9px 16px; font-size: 13px; text-align: center; width: 100%; justify-content: center;">
+                            <span>🌐</span> Visit ttacircle.com
                         </a>
                     </div>
                 </div>
+
+                <!-- Right Main Content: Rich Bio & Philosophy -->
+                <div class="co-org-main-content">
+                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 6px;">
+                        <h3>About Kavita Awasthi & TTA Circle</h3>
+                        <span class="step-badge" style="background: var(--brand-primary); color: #fff; font-size: 12px; padding: 4px 14px; border-radius: 20px; font-weight: 600;">Co-Organizer</span>
+                    </div>
+                    <span class="co-org-sub">Bridging Psychological Depth, Talent Discovery & Holistic Well-being</span>
+
+                    <p class="co-org-bio-para">
+                        <strong>Kavita Awasthi</strong> is a practicing Counselling Psychologist with <strong>7+ years of dedicated clinical experience</strong> post her Master's degree, focusing deeply on Talent Discovery and Holistic Health.
+                    </p>
+
+                    <p class="co-org-bio-para">
+                        Under the umbrella of <a href="https://www.ttacircle.com/" target="_blank" style="color: var(--brand-primary); font-weight: 700; text-decoration: underline;">TTA Circle</a> <strong>(Tat Tvam Asi — <em>"That Thou Art"</em>)</strong>, she works extensively with clients across all age groups to elevate self-understanding and harmonize all dimensions of well-being—physical, emotional, occupational, relational, mental, and spiritual.
+                    </p>
+
+                    <p class="co-org-bio-para">
+                        Her approach to health and healing synthesizes the rich insights gained from her developmental years living and travelling across India, together with <strong>21+ years of leadership in the global financial services sector</strong> around the world, before transitioning fully into her calling in psychological and energetic wellness.
+                    </p>
+
+                    <div class="co-org-quote-box">
+                        <p>
+                            <em>"It is with great pleasure and conviction that Kavita and the TTA Circle team bring to you this deep-impact programme, combining Louise L. Hay’s internationally acclaimed Heal Your Life® framework conducted by Mrs. Aarti Gupta, the pristine forest-healing energies of SUMIRAN Eco-Forest, nurturing hospitality of Land’s End Resort, and an introduction to the 'Life Without Medicine' programme. We look forward to welcoming you into this sanctuary of renewal."</em>
+                        </p>
+                    </div>
+                </div>
+
             </div>
 
         </div>
