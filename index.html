@@ -1389,6 +1389,199 @@
             opacity: 1;
         }
 
+        /* Gallery Filter Tabs */
+        .gallery-filter-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 30px auto 10px;
+            max-width: 900px;
+        }
+
+        .gallery-tab-btn {
+            background: #ffffff;
+            color: var(--text-dark);
+            border: 1.5px solid var(--border-light);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .gallery-tab-btn:hover {
+            border-color: var(--brand-accent);
+            color: var(--brand-primary);
+            transform: translateY(-1px);
+        }
+
+        .gallery-tab-btn.active {
+            background: var(--brand-primary);
+            color: #ffffff;
+            border-color: var(--brand-primary);
+            box-shadow: 0 4px 14px rgba(133, 34, 82, 0.25);
+        }
+
+        .gallery-card.is-hidden {
+            display: none !important;
+        }
+
+        /* Fullscreen Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999999;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 8, 14, 0.94);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .lightbox-container {
+            position: relative;
+            z-index: 2;
+            max-width: 92vw;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-image-wrap {
+            position: relative;
+            max-width: 100%;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-image-wrap img {
+            max-width: 90vw;
+            max-height: 75vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .lightbox-caption {
+            margin-top: 14px;
+            color: #fcebf2;
+            font-family: var(--font-display);
+            font-size: 18px;
+            text-align: center;
+            max-width: 800px;
+            line-height: 1.4;
+        }
+
+        .lightbox-counter {
+            margin-top: 4px;
+            font-size: 12.5px;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 0.5px;
+        }
+
+        .lightbox-close-btn {
+            position: fixed;
+            top: 24px;
+            right: 28px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #ffffff;
+            font-size: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .lightbox-close-btn:hover {
+            background: var(--brand-accent);
+            transform: scale(1.1);
+        }
+
+        .lightbox-nav-btn {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #ffffff;
+            font-size: 40px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            transition: all 0.2s ease;
+            z-index: 10;
+            user-select: none;
+        }
+
+        .lightbox-nav-btn:hover {
+            background: var(--brand-primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-nav-btn.prev {
+            left: 24px;
+        }
+
+        .lightbox-nav-btn.next {
+            right: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 30px;
+            }
+            .lightbox-nav-btn.prev { left: 10px; }
+            .lightbox-nav-btn.next { right: 10px; }
+            .lightbox-close-btn { top: 16px; right: 16px; }
+            .lightbox-caption { font-size: 15px; }
+        }
+
+
         /* -------------------------------------------
            COMMUNITY & BLOSSOM STYLES
         ------------------------------------------- */
@@ -2402,103 +2595,188 @@
                 <p class="section-subtitle">Snapshots across workshops, international trainings with masters Patricia Crane & Rick Nichols, youth laboratories, and healing circles.</p>
             </div>
 
-            <div class="gallery-grid">
-                
-                <div class="gallery-card">
+            <!-- Category Filter Bar -->
+            <div class="gallery-filter-bar">
+                <button class="gallery-tab-btn active" data-filter="all">🌸 All Moments (43)</button>
+                <button class="gallery-tab-btn" data-filter="cohorts">👥 HYL Cohorts (20)</button>
+                <button class="gallery-tab-btn" data-filter="mentors">🎓 Global Mentors (4)</button>
+                <button class="gallery-tab-btn" data-filter="sound-energy">🔔 Sound & Energy (10)</button>
+                <button class="gallery-tab-btn" data-filter="community">💛 Community Circles (9)</button>
+            </div>
+
+            <div class="gallery-grid" id="gallery-items-grid">
+                <div class="gallery-card" data-category="mentors" onclick="openLightbox(0)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_1.jpg" alt="Aarti Gupta with Master Trainers Dr. Patricia Crane and Rick Nichols" loading="lazy">
                     <div class="gallery-overlay">With Global Mentors Patricia Crane & Rick Nichols</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(1)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_2.jpg" alt="Heal Your Life Workshop Cohort Circle" loading="lazy">
                     <div class="gallery-overlay">Heal Your Life® Transformational Cohort</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="community" onclick="openLightbox(2)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_3.jpg" alt="Youth & Teen Personal Growth Laboratory" loading="lazy">
                     <div class="gallery-overlay">Youth & Adolescent Personal Growth Lab</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(3)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_4.jpg" alt="Louise Hay Affirmation & Heart Work Session" loading="lazy">
                     <div class="gallery-overlay">Inner Child & Affirmation Circle</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(4)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_5.jpg" alt="Interactive Experiential Workshop" loading="lazy">
                     <div class="gallery-overlay">Experiential Learning & Reflection</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="sound-energy" onclick="openLightbox(5)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_6.jpg" alt="Reiki Certification & Attunement Ceremony" loading="lazy">
                     <div class="gallery-overlay">Reiki Degree Certification & Attunement</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="sound-energy" onclick="openLightbox(6)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_7.jpg" alt="Sound Healing & Meditation Immersion" loading="lazy">
                     <div class="gallery-overlay">Sound Healing & Meditation Circle</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(7)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_8.jpg" alt="Group Forgiveness and Emotional Release Process" loading="lazy">
                     <div class="gallery-overlay">Forgiveness & Emotional Release Process</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="community" onclick="openLightbox(8)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_9.jpg" alt="Healing Circle Community Celebration" loading="lazy">
                     <div class="gallery-overlay">Community Celebration & Joy</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="community" onclick="openLightbox(9)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_10.jpg" alt="Faculty Development Program Session" loading="lazy">
                     <div class="gallery-overlay">Institutional Faculty Development Program</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="sound-energy" onclick="openLightbox(10)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_11.jpg" alt="Healing Circle Sacred Altar & Energy Tools" loading="lazy">
                     <div class="gallery-overlay">Sacred Altar & Crystal Energy Tools</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(11)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_12.jpg" alt="Aarti Gupta Facilitating Workshop Group" loading="lazy">
                     <div class="gallery-overlay">Aarti Gupta Guiding Group Meditation</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(12)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_13.jpg" alt="Love Yourself, Heal Your Life Cohort with Louise Hay Banner" loading="lazy">
                     <div class="gallery-overlay">Love Yourself, Heal Your Life® Cohort</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="mentors" onclick="openLightbox(13)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_14.jpg" alt="Historic Mentors: Louise Hay, Wayne Dyer, Brian Weiss & Aarti Gupta" loading="lazy">
                     <div class="gallery-overlay">Master Teachers: Louise Hay, Wayne Dyer & Brian Weiss</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="sound-energy" onclick="openLightbox(14)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_15.jpg" alt="Tibetan Singing Bowls & Sound Therapy Immersion at Healing Circle" loading="lazy">
                     <div class="gallery-overlay">Tibetan Singing Bowls & Sound Therapy</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="community" onclick="openLightbox(15)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_16.jpg" alt="Joyful Family & Community Healing Circle" loading="lazy">
                     <div class="gallery-overlay">Joyful Family & Community Healing Circle</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(16)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_17.jpg" alt="Affirmation & Self-Love Breakthrough Circle" loading="lazy">
                     <div class="gallery-overlay">Affirmation & Self-Love Circle</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="sound-energy" onclick="openLightbox(17)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_18.jpg" alt="Sound Therapy Wisdom: Nourishment for Body, Mind & Spirit" loading="lazy">
                     <div class="gallery-overlay">Sound Therapy Wisdom & Healing</div>
                 </div>
-
-                <div class="gallery-card">
+                <div class="gallery-card" data-category="community" onclick="openLightbox(18)" title="Click to view full photo">
                     <img src="assets/gallery/gallery_19.jpg" alt="Keynote at BITSAA Global Meet: Ordering from the Cosmic Kitchen" loading="lazy">
                     <div class="gallery-overlay">Keynote at BITSAA Global Meet</div>
                 </div>
-
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(19)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_20.jpg" alt="Subconscious Emotional Healing & Inner Journey Circle" loading="lazy">
+                    <div class="gallery-overlay">Subconscious Emotional Healing Circle</div>
+                </div>
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(20)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_21.jpg" alt="Heal Your Life Transformational Mirror Work Process" loading="lazy">
+                    <div class="gallery-overlay">Transformational Mirror Work Process</div>
+                </div>
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(21)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_22.jpg" alt="Radiant Self-Love & Inner Peace Breakthrough Group" loading="lazy">
+                    <div class="gallery-overlay">Radiant Self-Love Breakthrough Group</div>
+                </div>
+                <div class="gallery-card" data-category="sound-energy" onclick="openLightbox(22)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_23.jpg" alt="Usui Reiki Healing Hands & Energy Alignment" loading="lazy">
+                    <div class="gallery-overlay">Reiki Energy Healing & Hands-on Alignment</div>
+                </div>
+                <div class="gallery-card" data-category="mentors" onclick="openLightbox(23)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_24.jpg" alt="Dr. Patricia Crane & Rick Nichols with Aarti Gupta at Global HYL Training" loading="lazy">
+                    <div class="gallery-overlay">Global HYL Leadership with Dr. Patricia Crane</div>
+                </div>
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(24)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_25.jpg" alt="Heart-Centered Subconscious Script Repatterning" loading="lazy">
+                    <div class="gallery-overlay">Heart-Centered Script Repatterning</div>
+                </div>
+                <div class="gallery-card" data-category="community" onclick="openLightbox(25)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_26.jpg" alt="Warm Community Gatherings at Healing Circle" loading="lazy">
+                    <div class="gallery-overlay">Healing Circle Community Gathering</div>
+                </div>
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(26)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_27.jpg" alt="Louise Hay Philosophy Intensive Retreat Cohort" loading="lazy">
+                    <div class="gallery-overlay">Louise Hay Philosophy Intensive Cohort</div>
+                </div>
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(27)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_28.jpg" alt="Deep Introspection & Journaling Meditation Circle" loading="lazy">
+                    <div class="gallery-overlay">Deep Introspection & Journaling Circle</div>
+                </div>
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(28)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_29.jpg" alt="Sacred Container for Emotional Containment and Healing" loading="lazy">
+                    <div class="gallery-overlay">Sacred Container for Emotional Healing</div>
+                </div>
+                <div class="gallery-card" data-category="sound-energy" onclick="openLightbox(29)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_30.jpg" alt="Singing Bowls & Sound Resonance Healing Circle" loading="lazy">
+                    <div class="gallery-overlay">Singing Bowls & Sound Resonance Session</div>
+                </div>
+                <div class="gallery-card" data-category="mentors" onclick="openLightbox(30)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_31.jpg" alt="Aarti Gupta Certified by Master Teachers Crane & Nichols" loading="lazy">
+                    <div class="gallery-overlay">Certified by Master Trainers Crane & Nichols</div>
+                </div>
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(31)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_32.jpg" alt="Cathartic Emotional Release & Group Acceptance Process" loading="lazy">
+                    <div class="gallery-overlay">Emotional Release & Acceptance Circle</div>
+                </div>
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(32)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_33.jpg" alt="Inner Child Healing & Reconnection Workshop" loading="lazy">
+                    <div class="gallery-overlay">Inner Child Healing & Reconnection</div>
+                </div>
+                <div class="gallery-card" data-category="sound-energy" onclick="openLightbox(33)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_34.jpg" alt="Holistic Mind-Body Alignment and Chakra Cleansing" loading="lazy">
+                    <div class="gallery-overlay">Mind-Body Chakra Cleansing Immersion</div>
+                </div>
+                <div class="gallery-card" data-category="sound-energy" onclick="openLightbox(34)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_35.jpg" alt="Guided Breathwork & Sacred Sound Immersion" loading="lazy">
+                    <div class="gallery-overlay">Guided Breathwork & Sacred Sound Immersion</div>
+                </div>
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(35)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_36.jpg" alt="Love Yourself Heal Your Life Daily Affirmation Circle" loading="lazy">
+                    <div class="gallery-overlay">Daily Affirmations & Self-Care Circle</div>
+                </div>
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(36)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_37.jpg" alt="Group Forgiveness & Release of Past Burdens" loading="lazy">
+                    <div class="gallery-overlay">Group Forgiveness & Release of the Past</div>
+                </div>
+                <div class="gallery-card" data-category="community" onclick="openLightbox(37)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_38.jpg" alt="Celebration of Personal Growth & Inner Transformation" loading="lazy">
+                    <div class="gallery-overlay">Celebration of Personal Transformation</div>
+                </div>
+                <div class="gallery-card" data-category="sound-energy" onclick="openLightbox(38)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_39.jpg" alt="Reiki Master Degree Students & Energy Circle" loading="lazy">
+                    <div class="gallery-overlay">Reiki Master Practitioner Gathering</div>
+                </div>
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(39)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_40.jpg" alt="Empowered Life Changes & Gratitude Expression" loading="lazy">
+                    <div class="gallery-overlay">Empowered Living & Gratitude Expression</div>
+                </div>
+                <div class="gallery-card" data-category="community" onclick="openLightbox(40)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_41.jpg" alt="Joyous Smiles & Deep Sisterhood Connection" loading="lazy">
+                    <div class="gallery-overlay">Joyous Connection & Sisterhood Circle</div>
+                </div>
+                <div class="gallery-card" data-category="cohorts" onclick="openLightbox(41)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_42.jpg" alt="Complete Transformational Journey Cohort" loading="lazy">
+                    <div class="gallery-overlay">Complete Transformational Journey Cohort</div>
+                </div>
+                <div class="gallery-card" data-category="community" onclick="openLightbox(42)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_43.jpg" alt="Circle of Love, Joy, and Peace at Healing Circle" loading="lazy">
+                    <div class="gallery-overlay">Circle of Love, Joy & Peace</div>
+                </div>
             </div>
         </div>
     </section>
@@ -2919,5 +3197,99 @@
             window.open(`https://wa.me/919321598162?text=${text}`, '_blank');
         }
     </script>
+    <!-- FULLSCREEN INTERACTIVE LIGHTBOX MODAL -->
+    <div id="gallery-lightbox" class="lightbox-modal" aria-hidden="true">
+        <div class="lightbox-backdrop" onclick="closeLightbox()"></div>
+        <div class="lightbox-container">
+            <button class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Close modal">&times;</button>
+            <button class="lightbox-nav-btn prev" onclick="prevLightboxImage()" aria-label="Previous photo">&lsaquo;</button>
+            <div class="lightbox-image-wrap">
+                <img id="lightbox-img" src="" alt="Enlarged photograph">
+                <div id="lightbox-caption" class="lightbox-caption"></div>
+                <div id="lightbox-counter" class="lightbox-counter"></div>
+            </div>
+            <button class="lightbox-nav-btn next" onclick="nextLightboxImage()" aria-label="Next photo">&rsaquo;</button>
+        </div>
+    </div>
+
+    <!-- GALLERY CATEGORY FILTER & LIGHTBOX SCRIPT -->
+    <script>
+        const galleryData = [{'img': 'assets/gallery/gallery_1.jpg', 'cat': 'mentors', 'cap': 'With Global Mentors Patricia Crane & Rick Nichols'}, {'img': 'assets/gallery/gallery_2.jpg', 'cat': 'cohorts', 'cap': 'Heal Your Life® Transformational Cohort'}, {'img': 'assets/gallery/gallery_3.jpg', 'cat': 'community', 'cap': 'Youth & Adolescent Personal Growth Lab'}, {'img': 'assets/gallery/gallery_4.jpg', 'cat': 'cohorts', 'cap': 'Inner Child & Affirmation Circle'}, {'img': 'assets/gallery/gallery_5.jpg', 'cat': 'cohorts', 'cap': 'Experiential Learning & Reflection'}, {'img': 'assets/gallery/gallery_6.jpg', 'cat': 'sound-energy', 'cap': 'Reiki Degree Certification & Attunement'}, {'img': 'assets/gallery/gallery_7.jpg', 'cat': 'sound-energy', 'cap': 'Sound Healing & Meditation Circle'}, {'img': 'assets/gallery/gallery_8.jpg', 'cat': 'cohorts', 'cap': 'Forgiveness & Emotional Release Process'}, {'img': 'assets/gallery/gallery_9.jpg', 'cat': 'community', 'cap': 'Community Celebration & Joy'}, {'img': 'assets/gallery/gallery_10.jpg', 'cat': 'community', 'cap': 'Institutional Faculty Development Program'}, {'img': 'assets/gallery/gallery_11.jpg', 'cat': 'sound-energy', 'cap': 'Sacred Altar & Crystal Energy Tools'}, {'img': 'assets/gallery/gallery_12.jpg', 'cat': 'cohorts', 'cap': 'Aarti Gupta Guiding Group Meditation'}, {'img': 'assets/gallery/gallery_13.jpg', 'cat': 'cohorts', 'cap': 'Love Yourself, Heal Your Life® Cohort'}, {'img': 'assets/gallery/gallery_14.jpg', 'cat': 'mentors', 'cap': 'Master Teachers: Louise Hay, Wayne Dyer & Brian Weiss'}, {'img': 'assets/gallery/gallery_15.jpg', 'cat': 'sound-energy', 'cap': 'Tibetan Singing Bowls & Sound Therapy'}, {'img': 'assets/gallery/gallery_16.jpg', 'cat': 'community', 'cap': 'Joyful Family & Community Healing Circle'}, {'img': 'assets/gallery/gallery_17.jpg', 'cat': 'cohorts', 'cap': 'Affirmation & Self-Love Circle'}, {'img': 'assets/gallery/gallery_18.jpg', 'cat': 'sound-energy', 'cap': 'Sound Therapy Wisdom & Healing'}, {'img': 'assets/gallery/gallery_19.jpg', 'cat': 'community', 'cap': 'Keynote at BITSAA Global Meet'}, {'img': 'assets/gallery/gallery_20.jpg', 'cat': 'cohorts', 'cap': 'Subconscious Emotional Healing Circle'}, {'img': 'assets/gallery/gallery_21.jpg', 'cat': 'cohorts', 'cap': 'Transformational Mirror Work Process'}, {'img': 'assets/gallery/gallery_22.jpg', 'cat': 'cohorts', 'cap': 'Radiant Self-Love Breakthrough Group'}, {'img': 'assets/gallery/gallery_23.jpg', 'cat': 'sound-energy', 'cap': 'Reiki Energy Healing & Hands-on Alignment'}, {'img': 'assets/gallery/gallery_24.jpg', 'cat': 'mentors', 'cap': 'Global HYL Leadership with Dr. Patricia Crane'}, {'img': 'assets/gallery/gallery_25.jpg', 'cat': 'cohorts', 'cap': 'Heart-Centered Script Repatterning'}, {'img': 'assets/gallery/gallery_26.jpg', 'cat': 'community', 'cap': 'Healing Circle Community Gathering'}, {'img': 'assets/gallery/gallery_27.jpg', 'cat': 'cohorts', 'cap': 'Louise Hay Philosophy Intensive Cohort'}, {'img': 'assets/gallery/gallery_28.jpg', 'cat': 'cohorts', 'cap': 'Deep Introspection & Journaling Circle'}, {'img': 'assets/gallery/gallery_29.jpg', 'cat': 'cohorts', 'cap': 'Sacred Container for Emotional Healing'}, {'img': 'assets/gallery/gallery_30.jpg', 'cat': 'sound-energy', 'cap': 'Singing Bowls & Sound Resonance Session'}, {'img': 'assets/gallery/gallery_31.jpg', 'cat': 'mentors', 'cap': 'Certified by Master Trainers Crane & Nichols'}, {'img': 'assets/gallery/gallery_32.jpg', 'cat': 'cohorts', 'cap': 'Emotional Release & Acceptance Circle'}, {'img': 'assets/gallery/gallery_33.jpg', 'cat': 'cohorts', 'cap': 'Inner Child Healing & Reconnection'}, {'img': 'assets/gallery/gallery_34.jpg', 'cat': 'sound-energy', 'cap': 'Mind-Body Chakra Cleansing Immersion'}, {'img': 'assets/gallery/gallery_35.jpg', 'cat': 'sound-energy', 'cap': 'Guided Breathwork & Sacred Sound Immersion'}, {'img': 'assets/gallery/gallery_36.jpg', 'cat': 'cohorts', 'cap': 'Daily Affirmations & Self-Care Circle'}, {'img': 'assets/gallery/gallery_37.jpg', 'cat': 'cohorts', 'cap': 'Group Forgiveness & Release of the Past'}, {'img': 'assets/gallery/gallery_38.jpg', 'cat': 'community', 'cap': 'Celebration of Personal Transformation'}, {'img': 'assets/gallery/gallery_39.jpg', 'cat': 'sound-energy', 'cap': 'Reiki Master Practitioner Gathering'}, {'img': 'assets/gallery/gallery_40.jpg', 'cat': 'cohorts', 'cap': 'Empowered Living & Gratitude Expression'}, {'img': 'assets/gallery/gallery_41.jpg', 'cat': 'community', 'cap': 'Joyous Connection & Sisterhood Circle'}, {'img': 'assets/gallery/gallery_42.jpg', 'cat': 'cohorts', 'cap': 'Complete Transformational Journey Cohort'}, {'img': 'assets/gallery/gallery_43.jpg', 'cat': 'community', 'cap': 'Circle of Love, Joy & Peace'}];
+
+        let currentActiveIndices = galleryData.map((_, i) => i);
+        let currentLightboxIndex = 0;
+
+        // Category Filter Logic
+        document.querySelectorAll('.gallery-tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.gallery-tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+                const cards = document.querySelectorAll('#gallery-items-grid .gallery-card');
+                currentActiveIndices = [];
+
+                cards.forEach((card, index) => {
+                    const cat = card.getAttribute('data-category');
+                    if (filter === 'all' || cat === filter) {
+                        card.classList.remove('is-hidden');
+                        currentActiveIndices.push(index);
+                    } else {
+                        card.classList.add('is-hidden');
+                    }
+                });
+            });
+        });
+
+        // Lightbox Functions
+        function openLightbox(index) {
+            const activePos = currentActiveIndices.indexOf(index);
+            currentLightboxIndex = activePos !== -1 ? activePos : 0;
+            updateLightbox();
+            const lb = document.getElementById('gallery-lightbox');
+            lb.classList.add('active');
+            lb.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lb = document.getElementById('gallery-lightbox');
+            lb.classList.remove('active');
+            lb.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightbox() {
+            if (currentActiveIndices.length === 0) return;
+            const dataIndex = currentActiveIndices[currentLightboxIndex];
+            const item = galleryData[dataIndex];
+            document.getElementById('lightbox-img').src = item.img;
+            document.getElementById('lightbox-caption').textContent = item.cap;
+            document.getElementById('lightbox-counter').textContent = (currentLightboxIndex + 1) + ' of ' + currentActiveIndices.length;
+        }
+
+        function nextLightboxImage() {
+            if (currentActiveIndices.length <= 1) return;
+            currentLightboxIndex = (currentLightboxIndex + 1) % currentActiveIndices.length;
+            updateLightbox();
+        }
+
+        function prevLightboxImage() {
+            if (currentActiveIndices.length <= 1) return;
+            currentLightboxIndex = (currentLightboxIndex - 1 + currentActiveIndices.length) % currentActiveIndices.length;
+            updateLightbox();
+        }
+
+        // Keyboard Controls (Esc, Left, Right)
+        document.addEventListener('keydown', (e) => {
+            const lb = document.getElementById('gallery-lightbox');
+            if (!lb.classList.contains('active')) return;
+
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextLightboxImage();
+            if (e.key === 'ArrowLeft') prevLightboxImage();
+        });
+    </script>
+
 </body>
 </html>
