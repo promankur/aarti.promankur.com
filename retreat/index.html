@@ -1926,6 +1926,201 @@
                 right: 18px;
             }
         }
+    
+        /* -------------------------------------------
+           RETREAT MOMENTS GALLERY & LIGHTBOX
+        ------------------------------------------- */
+        .retreat-gallery-section {
+            background: var(--bg-soft);
+            padding: 85px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .retreat-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 35px;
+        }
+
+        .retreat-gallery-card {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            aspect-ratio: 4/3;
+            background: #f0e6ed;
+            cursor: pointer;
+        }
+
+        .retreat-gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .retreat-gallery-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .retreat-gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px 14px 12px;
+            background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0) 100%);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .retreat-gallery-card:hover .retreat-gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999999;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 8, 14, 0.94);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .lightbox-container {
+            position: relative;
+            z-index: 2;
+            max-width: 92vw;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-image-wrap {
+            position: relative;
+            max-width: 100%;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-image-wrap img {
+            max-width: 90vw;
+            max-height: 75vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .lightbox-caption {
+            margin-top: 14px;
+            color: #fcebf2;
+            font-family: var(--font-display);
+            font-size: 18px;
+            text-align: center;
+            max-width: 800px;
+            line-height: 1.4;
+        }
+
+        .lightbox-counter {
+            margin-top: 4px;
+            font-size: 12.5px;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 0.5px;
+        }
+
+        .lightbox-close-btn {
+            position: fixed;
+            top: 24px;
+            right: 28px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #ffffff;
+            font-size: 32px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .lightbox-close-btn:hover {
+            background: var(--brand-accent);
+            transform: scale(1.1);
+        }
+
+        .lightbox-nav-btn {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #ffffff;
+            font-size: 40px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            transition: all 0.2s ease;
+            z-index: 10;
+            user-select: none;
+        }
+
+        .lightbox-nav-btn:hover {
+            background: var(--brand-primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-nav-btn.prev { left: 24px; }
+        .lightbox-nav-btn.next { right: 24px; }
+
+        @media (max-width: 768px) {
+            .lightbox-nav-btn { width: 40px; height: 40px; font-size: 30px; }
+            .lightbox-nav-btn.prev { left: 10px; }
+            .lightbox-nav-btn.next { right: 10px; }
+            .lightbox-close-btn { top: 16px; right: 16px; }
+            .lightbox-caption { font-size: 15px; }
+        }
+
     </style>
 </head>
 <body>
@@ -1950,6 +2145,7 @@
                     <li><a href="#pillars">Takeaways</a></li>
                     <li><a href="#venue">Forest Venue</a></li>
                     <li><a href="#details">Schedule & Details</a></li>
+                    <li><a href="#gallery">Moments</a></li>
                     <li><a href="#faq">FAQ</a></li>
                 </ul>
 
@@ -2205,7 +2401,7 @@
                     <span class="co-org-role">Counselling Psychologist • Retreat Co-Organizer</span>
 
                     <div class="co-org-pills">
-                        <div class="co-org-pill">🌱 7+ Years Clinical Psychology (Post-Masters)</div>
+                        <div class="co-org-pill">🌱 7+ Years Counselling Psychology (Post-Masters)</div>
                         <div class="co-org-pill">🌍 21+ Years Global Corporate Experience</div>
                         <div class="co-org-pill">✨ Founder, TTA Circle <em>(Tat Tvam Asi)</em></div>
                     </div>
@@ -2229,7 +2425,7 @@
                     <span class="co-org-sub">Bridging Psychological Depth, Talent Discovery & Holistic Well-being</span>
 
                     <p class="co-org-bio-para">
-                        <strong>Kavita Awasthi</strong> is a practicing Counselling Psychologist with <strong>7+ years of dedicated clinical experience</strong> post her Master's degree, focusing deeply on Talent Discovery and Holistic Health.
+                        <strong>Kavita Awasthi</strong> is a practicing Counselling Psychologist with <strong>7+ years of experience</strong> post her Master's degree, focusing deeply on Talent Discovery and Holistic Health.
                     </p>
 
                     <p class="co-org-bio-para">
@@ -2471,6 +2667,68 @@
                 </table>
             </div>
 
+        </div>
+    </section>
+
+    <!-- 5. RETREAT MOMENTS & ATMOSPHERE GALLERY -->
+    <section id="gallery" class="retreat-gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">The Atmosphere & Energy</span>
+                <h2 class="section-title">Moments from Past Transformational Circles</h2>
+                <p class="section-subtitle">A glimpse into the warmth, profound breakthroughs, and sacred camaraderie that unfold when we gather to heal.</p>
+            </div>
+
+            <div class="retreat-gallery-grid">
+                <div class="retreat-gallery-card" onclick="openRetreatLightbox(0)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_13.jpg" alt="Heal Your Life® Cohort Gathering" loading="lazy">
+                    <div class="retreat-gallery-overlay">Love Yourself, Heal Your Life Group 01</div>
+                </div>
+                <div class="retreat-gallery-card" onclick="openRetreatLightbox(1)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_14.jpg" alt="Master Teachers: Louise Hay, Wayne Dyer & Brian Weiss" loading="lazy">
+                    <div class="retreat-gallery-overlay">Healing Circle Collage 01</div>
+                </div>
+                <div class="retreat-gallery-card" onclick="openRetreatLightbox(2)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_15.jpg" alt="Tibetan Singing Bowls & Sound Therapy" loading="lazy">
+                    <div class="retreat-gallery-overlay">Sound Therapy with Tibetan Singing Bowls</div>
+                </div>
+                <div class="retreat-gallery-card" onclick="openRetreatLightbox(3)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_23.jpg" alt="Sound Healing & Deep Somatic Relaxation" loading="lazy">
+                    <div class="retreat-gallery-overlay">Bhubaneshwar LGBTQAI Sound Healing</div>
+                </div>
+                <div class="retreat-gallery-card" onclick="openRetreatLightbox(4)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_17.jpg" alt="Affirmation & Self-Love Cards Process" loading="lazy">
+                    <div class="retreat-gallery-overlay">Angel Card Reading</div>
+                </div>
+                <div class="retreat-gallery-card" onclick="openRetreatLightbox(5)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_2.jpg" alt="Introspective Intimate Circle with Aarti Gupta" loading="lazy">
+                    <div class="retreat-gallery-overlay">Resonance You Can Heal Your Life Workshop 01</div>
+                </div>
+                <div class="retreat-gallery-card" onclick="openRetreatLightbox(6)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_38.jpg" alt="Sacred Energy Connection & Joined Hands" loading="lazy">
+                    <div class="retreat-gallery-overlay">Healing Circle - Reiki Healing 01</div>
+                </div>
+                <div class="retreat-gallery-card" onclick="openRetreatLightbox(7)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_46.jpg" alt="Heal Your Life® Transformative Cohort" loading="lazy">
+                    <div class="retreat-gallery-overlay">Heal Your Life Workshop</div>
+                </div>
+                <div class="retreat-gallery-card" onclick="openRetreatLightbox(8)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_44.jpg" alt="Emotional Freedom & Mirror Work Process" loading="lazy">
+                    <div class="retreat-gallery-overlay">Emotional Freedom Experience</div>
+                </div>
+                <div class="retreat-gallery-card" onclick="openRetreatLightbox(9)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_26.jpg" alt="Aarti Gupta with Global Mentors Patricia Crane & Rick Nichols" loading="lazy">
+                    <div class="retreat-gallery-overlay">Aarti Gupta with Dr. Patricia Crane & Rick Nichols with Treasury of Thank Yous</div>
+                </div>
+                <div class="retreat-gallery-card" onclick="openRetreatLightbox(10)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_27.jpg" alt="Love Yourself, Heal Your Life® - Journey to Self-Love" loading="lazy">
+                    <div class="retreat-gallery-overlay">Journey to Self Love</div>
+                </div>
+                <div class="retreat-gallery-card" onclick="openRetreatLightbox(11)" title="Click to view full photo">
+                    <img src="assets/gallery/gallery_45.jpg" alt="Joyful Healing Circle Community Connection" loading="lazy">
+                    <div class="retreat-gallery-overlay">Healing Circle Group</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2806,5 +3064,66 @@
             }
         });
     </script>
+    <!-- FULLSCREEN RETREAT LIGHTBOX MODAL -->
+    <div id="retreat-lightbox" class="lightbox-modal" aria-hidden="true">
+        <div class="lightbox-backdrop" onclick="closeRetreatLightbox()"></div>
+        <div class="lightbox-container">
+            <button class="lightbox-close-btn" onclick="closeRetreatLightbox()" aria-label="Close modal">&times;</button>
+            <button class="lightbox-nav-btn prev" onclick="prevRetreatLightbox()" aria-label="Previous photo">&lsaquo;</button>
+            <div class="lightbox-image-wrap">
+                <img id="retreat-lightbox-img" src="" alt="Enlarged photograph">
+                <div id="retreat-lightbox-caption" class="lightbox-caption"></div>
+                <div id="retreat-lightbox-counter" class="lightbox-counter"></div>
+            </div>
+            <button class="lightbox-nav-btn next" onclick="nextRetreatLightbox()" aria-label="Next photo">&rsaquo;</button>
+        </div>
+    </div>
+
+    <script>
+        const retreatGalleryData = [{'img': 'assets/gallery/gallery_13.jpg', 'cap': 'Love Yourself, Heal Your Life Group 01'}, {'img': 'assets/gallery/gallery_14.jpg', 'cap': 'Healing Circle Collage 01'}, {'img': 'assets/gallery/gallery_15.jpg', 'cap': 'Sound Therapy with Tibetan Singing Bowls'}, {'img': 'assets/gallery/gallery_23.jpg', 'cap': 'Bhubaneshwar LGBTQAI Sound Healing'}, {'img': 'assets/gallery/gallery_17.jpg', 'cap': 'Angel Card Reading'}, {'img': 'assets/gallery/gallery_2.jpg', 'cap': 'Resonance You Can Heal Your Life Workshop 01'}, {'img': 'assets/gallery/gallery_38.jpg', 'cap': 'Healing Circle - Reiki Healing 01'}, {'img': 'assets/gallery/gallery_46.jpg', 'cap': 'Heal Your Life Workshop'}, {'img': 'assets/gallery/gallery_44.jpg', 'cap': 'Emotional Freedom Experience'}, {'img': 'assets/gallery/gallery_26.jpg', 'cap': 'Aarti Gupta with Dr. Patricia Crane & Rick Nichols with Treasury of Thank Yous'}, {'img': 'assets/gallery/gallery_27.jpg', 'cap': 'Journey to Self Love'}, {'img': 'assets/gallery/gallery_45.jpg', 'cap': 'Healing Circle Group'}];
+        let retreatLightboxIndex = 0;
+
+        function openRetreatLightbox(idx) {
+            retreatLightboxIndex = idx;
+            updateRetreatLightbox();
+            const lb = document.getElementById('retreat-lightbox');
+            lb.classList.add('active');
+            lb.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeRetreatLightbox() {
+            const lb = document.getElementById('retreat-lightbox');
+            lb.classList.remove('active');
+            lb.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        function updateRetreatLightbox() {
+            const item = retreatGalleryData[retreatLightboxIndex];
+            document.getElementById('retreat-lightbox-img').src = item.img;
+            document.getElementById('retreat-lightbox-caption').textContent = item.cap;
+            document.getElementById('retreat-lightbox-counter').textContent = (retreatLightboxIndex + 1) + ' of ' + retreatGalleryData.length;
+        }
+
+        function nextRetreatLightbox() {
+            retreatLightboxIndex = (retreatLightboxIndex + 1) % retreatGalleryData.length;
+            updateRetreatLightbox();
+        }
+
+        function prevRetreatLightbox() {
+            retreatLightboxIndex = (retreatLightboxIndex - 1 + retreatGalleryData.length) % retreatGalleryData.length;
+            updateRetreatLightbox();
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const lb = document.getElementById('retreat-lightbox');
+            if (!lb || !lb.classList.contains('active')) return;
+            if (e.key === 'Escape') closeRetreatLightbox();
+            if (e.key === 'ArrowRight') nextRetreatLightbox();
+            if (e.key === 'ArrowLeft') prevRetreatLightbox();
+        });
+    </script>
+
 </body>
 </html>
